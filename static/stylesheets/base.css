@@ -8,6 +8,7 @@ body {
     background-color: #113946;
 }
 
+/* Container for entire window - flexbox*/
 
 .container {
     display: flex;
@@ -17,7 +18,7 @@ body {
     color: #FFF2D8;
 }
 
-
+/* Header flexbox within container */
 header {
     display: flex;
     flex-direction: column;
@@ -25,11 +26,24 @@ header {
     padding: 10px;
     border: 2px solid #FFF2D8;
 }
+.main-icon {
+    max-width: 100%;
+    height: auto;
+}
+.header-title {
+    text-align: center;
+}
+nav {
+    margin: 1em 0 .5em;
+    text-align: center;
+}
 
+/* Main content of page changes from one page to another*/
 main {
     flex: 1 0 auto;
 }
 
+/* Footer flexbox within container */
 footer {
     display: inline flex;
     justify-content: center;
@@ -41,8 +55,7 @@ footer {
 .footer-title {
     display: inline-block;
     padding: .5em .5em;
-
-
+    font-style: italics;
 }
 
 .copyright {
@@ -50,22 +63,10 @@ footer {
     padding: .5em .5em;
 }
 
-.main-icon {
-
-    max-width: 100%;
-    height: auto;
-}
-
-nav {
-    margin: 1em 0 .5em;
-    text-align: center;
-}
-
 .footer-nav {
     font-size: 1rem;
     display: inline-block;
     text-align: center;
-
 }
 
 nav li,
@@ -81,6 +82,3 @@ nav a,
     text-decoration: none;
 }
 
-.header-title {
-    text-align: center;
-}
