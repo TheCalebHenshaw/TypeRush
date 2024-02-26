@@ -1,0 +1,20 @@
+{% extends 'typerush/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Home
+{% endblock %}
+
+{% block css %}
+    <link href="{% static 'stylesheets/home.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block main_block %}
+    <img src="{% static 'images/homeImg.jpg' %}" alt="racing-cars" />
+    <h1>WELCOME</h1>
+    <div class ="instructions">
+        Game Instruction not added yet. But it will look like this when added.
+    </div>
+        
+    <button class="button get-started-button">GET STARTED</button>
+{% endblock %}

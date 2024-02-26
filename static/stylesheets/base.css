@@ -39,9 +39,7 @@ nav {
 }
 
 /* Main content of page changes from one page to another*/
-main {
-    flex: 1 0 auto;
-}
+main {}
 
 /* Footer flexbox within container */
 footer {

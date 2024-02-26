@@ -10,7 +10,9 @@
             Base 
         {% endblock %}
     </title>
+    {% block css %}
     <link href="{% static 'stylesheets/base.css' %}" rel="stylesheet" type="text/css" />
+    {% endblock %}
 </head>
 
 <body>
@@ -30,6 +32,8 @@
         {% endblock %}
         
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
