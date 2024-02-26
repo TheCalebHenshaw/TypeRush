@@ -1,7 +1,8 @@
-    /* mv's notes:
-       this is very shit bc i havent changed the 
-       listener thing from enter key to
-       space bar yet. im lazy.
+    /* hi eduardo
+    since this doesnt really work for websites yet we'll have to
+    modify a few things here and there
+    but the base logic is here
+    talked to rae earlier, itll be a while till we do buttonzz
     */
 
 const readline = require('readline');
