@@ -35,6 +35,16 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document.ready(function(){
+            $("nav").hover(function(){
+                $(this).animate({paddingLeft: '+=30px'}, 200);
+            }, function(){
+                $(this).animate({paddingLeft:'-=30px'},200);
+            });
+        }));
+    </script>
 </body>
 
 </html>

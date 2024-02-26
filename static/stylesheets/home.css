@@ -1,3 +1,4 @@
+/*credits: image taken from: <a href="https://www.freepik.com/free-photo/f1-racing-24-hours-le-mans-render-3d-illustration_27221933.htm#fromView=search&page=1&position=36&uuid=a0b232c4-6635-4243-8053-1677550dc723">Image by viarprodesign on Freepik</a> */
 @import url('/static/stylesheets/base.css');
 main img {
     height: 50%;
@@ -20,7 +21,6 @@ main h1 {
 
 main .instructions{
     margin: 10px;
-
 }
 
 main .get-started-button{
