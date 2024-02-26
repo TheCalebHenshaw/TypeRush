@@ -1,0 +1,6 @@
+color: #FFF2D8; text color and borders
+
+background-color: #113946; dark green? 
+
+font-family: cursive;
+ 

@@ -1,7 +1,7 @@
 html {
     height: 100%;
     width: 100%;
-    font-family: monospace;
+    font-family:monospace;
 }
 
 body {
@@ -23,8 +23,8 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    border: 2px solid #FFF2D8;
+    padding: 5px;
+    border: 1px solid #FFF2D8;
 }
 .main-icon {
     max-width: 100%;
@@ -32,6 +32,8 @@ header {
 }
 .header-title {
     text-align: center;
+    font-style: italic;
+    font-size: larger;
 }
 nav {
     margin: 1em 0 .5em;
@@ -47,7 +49,7 @@ footer {
     justify-content: center;
     text-align: center;
     padding: 10px;
-    border: 2px solid #FFF2D8;
+    border: 1px solid #FFF2D8;
 }
 
 .footer-title {
@@ -78,5 +80,10 @@ nav a,
     padding: .5em .5em;
     color: #FFF2D8;
     text-decoration: none;
+}
+
+a:hover{
+    color: white;
+    text-decoration: underline;
 }
 
