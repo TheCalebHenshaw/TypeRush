@@ -33,7 +33,7 @@
             </div>
             <div class="profile-title">
                 <h2 id="username">Username goes here</h2>
-                <h3 id="real-name"> Fullname if given | username</h3>
+                <h3 id="real-name"> Fullname if given</h3>
             </div>
 
         </div>
@@ -41,6 +41,218 @@
     </div>
 
     <div class="right-panel">
+        <div class="leaderboard-header">
+            <div class="table-title">
+                Leaderboard
+            </div>
+            <div class="select-mode">
+                <button type="button">
+                    Easy
+                </button>
+                <button type="button">
+                    Medium
+                </button>
+                <button type="button">
+                    Hard
+                </button>
+    
+            </div>
+
+        </div>
+        
+        <table>
+            <thead>
+            <tr class="table-header">
+                <th>Rank</th>
+                <th>Racer</th>
+                <th>Score</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="data-items">
+                <td id="rank">1</td>
+                <td id="user-data">
+                    <div id="profile-pic">
+                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                    </div>
+                    <div id="name">
+                        <div id="username">
+                            User
+                        </div>
+                        <div id="fullname">
+                            First Second
+                        </div>
+                    </div>
+                    
+                </td>
+                <td>53</td>
+            </tr>
+            <tr class="data-items">
+                <td id="rank">2</td>
+                <td id="user-data">
+                    <div id="profile-pic">
+                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                    </div>
+                    <div id="name">
+                        <div id="username">
+                            User
+                        </div>
+                        <div id="fullname">
+                            First Second
+                        </div>
+                    </div>
+                </td>
+                <td>53</td>
+            </tr>
+            <tr class="data-items">
+                <td id="rank">3</td>
+                <td id="user-data">
+                    <div id="profile-pic">
+                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                    </div>
+                    <div id="name">
+                        <div id="username">
+                            User
+                        </div>
+                        <div id="fullname">
+                            First Second
+                        </div>
+                    </div>
+                </td>
+                <td>53</td>
+            </tr>
+            <tr class="data-items">
+                <td id="rank">4</td>
+                <td id="user-data">
+                    <div id="profile-pic">
+                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                    </div>
+                    <div id="name">
+                        <div id="username">
+                            User
+                        </div>
+                        <div id="fullname">
+                            First Second
+                        </div>
+                    </div>
+                </td>
+                <td>53</td>
+            </tr>
+            <tr class="data-items">
+                <td id="rank">5</td>
+                <td id="user-data">
+                    <div id="profile-pic">
+                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                    </div>
+                    <div id="name">
+                        <div id="username">
+                            User
+                        </div>
+                        <div id="fullname">
+                            First Second
+                        </div>
+                    </div>
+                </td>
+                <td>53</td>
+            </tr>
+            <tr class="data-items">
+                <td id="rank">6</td>
+                <td id="user-data">
+                    <div id="profile-pic">
+                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                    </div>
+                    <div id="name">
+                        <div id="username">
+                            User
+                        </div>
+                        <div id="fullname">
+                            First Second
+                        </div>
+                    </div>
+                </td>
+                <td>53</td>
+            </tr>
+            <tr class="data-items">
+                <td id="rank">7</td>
+                <td id="user-data">
+                    <div id="profile-pic">
+                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                    </div>
+                    <div id="name">
+                        <div id="username">
+                            User
+                        </div>
+                        <div id="fullname">
+                            First Second
+                        </div>
+                    </div>
+                </td>
+                <td>53</td>
+            </tr>
+            <tr class="data-items">
+                <td id="rank">8</td>
+                <td id="user-data">
+                    <div id="profile-pic">
+                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                    </div>
+                    <div id="name">
+                        <div id="username">
+                            User
+                        </div>
+                        <div id="fullname">
+                            First Second
+                        </div>
+                    </div>
+                </td>
+                <td>53</td>
+            </tr>
+            <tr class="data-items">
+                <td id="rank">9</td>
+                <td id="user-data">
+                    <div id="profile-pic">
+                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                    </div>
+                    <div id="name">
+                        <div id="username">
+                            User
+                        </div>
+                        <div id="fullname">
+                            First Second
+                        </div>
+                    </div>
+                </td>
+                <td>53</td>
+            </tr>
+            <tr class="data-items">
+                <td id="rank">10</td>
+                <td id="user-data">
+                    <div id="profile-pic">
+                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                    </div>
+                    <div id="name">
+                        <div id="username">
+                            User
+                        </div>
+                        <div id="fullname">
+                            First Second
+                        </div>
+                    </div>
+                </td>
+                <td>53</td>
+            </tr>
+
+            <!-- Actual code that will be used -->
+            <!-- {% for leader in leaders %}
+            <tr>
+                <td>{{ leader.rank }}</td>
+                <td>{{ leader.username }}</td>
+                <td>{{ leader.score }}</td>
+            </tr>
+            {% endfor %}
+             -->
+            </tbody>
+
+        </table>
 
     </div>
 
