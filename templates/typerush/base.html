@@ -11,40 +11,32 @@
         {% endblock %}
     </title>
     {% block css %}
-    <link href="{% static 'stylesheets/base.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'stylesheets/base.css' %}" rel="stylesheet" type="text/css" />
     {% endblock %}
 </head>
 
 <body>
     <div class="container">
+        <header>
         {% block header_block %}
             {% include "typerush/header.html" %}
         {% endblock %}
-
+        </header>
         <main>
             {% block main_block %}
             {% endblock %}
         </main>
         {% block sidebar_block %}
         {% endblock %}
-        
+        <footer>
         {% block footer_block %}
             {% include "typerush/footer.html" %}
         {% endblock %}
+        </footer>
         
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-        $(document.ready(function(){
-            $("nav").hover(function(){
-                $(this).animate({paddingLeft: '+=30px'}, 200);
-            }, function(){
-                $(this).animate({paddingLeft:'-=30px'},200);
-            });
-        }));
-    </script>
 </body>
 
 </html>

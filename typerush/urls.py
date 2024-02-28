@@ -5,4 +5,5 @@ app_name = 'typerush'
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('leaderboard/', views.leaderboard, name='leaderboard'),
 ]

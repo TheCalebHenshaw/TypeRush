@@ -1,0 +1,87 @@
+@import url('/static/stylesheets/base.css');
+
+main {
+    display: inline flex;
+    min-height: 50vh;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 10px;
+}
+
+.left-panel{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    width: 30%;
+    gap: 20px;
+    min-height: 50vh;
+    border-radius: inherit;
+
+    text-transform: uppercase;
+}
+
+.rank-box {
+    display: flex;
+    background-image: linear-gradient(#FFFFFF,#ffffff74);
+    color: black;
+    padding: 0 15px 0 15px;
+    min-height: 10vh;
+    justify-content: space-between;
+    border-radius: inherit;
+    
+}
+.personal-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    background-image: linear-gradient(#0B2323, #193232);
+    min-height: 40vh;
+    border: 2px solid #908a7d;
+    border-radius: inherit;
+
+    text-align: center;
+
+}
+
+.profile-pic img{
+    height: 15vh;
+    width: 15vh;
+    border-radius: 50%;
+
+}
+
+.right-panel{
+    background-image: linear-gradient(#0B2323, #193232);
+
+    min-height: 50vh;
+    width: 50%;
+    border: 2px solid #908a7d;
+    border-radius: inherit;
+}
+
+.rank-display{
+    text-align: left;
+    
+}
+
+.score-display{
+    text-align: right;
+}
+
+.my-profile{
+    font-size: x-large;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.profile-title #real-name {
+    text-transform: capitalize;
+    color: aquamarine;
+}
+
+

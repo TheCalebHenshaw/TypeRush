@@ -1,0 +1,47 @@
+{% extends 'typerush/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Leaderboard
+{% endblock %}
+
+{% block css %}
+    <!-- filename in cap letter and works? -->
+    <link href="{% static 'stylesheets/Leaderboard.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block main_block %}
+    <div class="left-panel">
+        <div class="rank-box">
+            <div class="rank-display">
+                <h3>My Rank</h3>
+                <h2>2nd Place</h2>
+            </div>
+            <div class="score-display">
+                <h3>My Score</h3>
+                <h2>100wpm</h2>
+            </div>
+            
+        </div>
+        <div class="personal-info">
+            <div class="my-profile">
+                My Profile
+            </div>
+            
+            <div class="profile-pic">
+                <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+            </div>
+            <div class="profile-title">
+                <h2 id="username">Username goes here</h2>
+                <h3 id="real-name"> Fullname if given | username</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="right-panel">
+
+    </div>
+
+{% endblock %}

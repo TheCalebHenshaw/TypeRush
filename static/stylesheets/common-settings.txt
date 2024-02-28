@@ -1,6 +1,7 @@
 color: #FFF2D8; text color and borders
 
-background-color: #113946; dark green? 
+background-color: previous: #113946
+                #0B2323; dark green? 
 
 font-family: monospace;
  

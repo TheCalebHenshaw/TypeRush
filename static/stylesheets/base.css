@@ -5,7 +5,7 @@ html {
 }
 
 body {
-    background-color: #113946;
+    background-color: #0B2323;
 }
 
 /* Container for entire window - flexbox*/
@@ -52,13 +52,7 @@ footer {
     border: 1px solid #FFF2D8;
 }
 
-.footer-title {
-    display: inline-block;
-    padding: .5em .5em;
-    font-style: italics;
-}
-
-.copyright {
+.footer-title, .copyright {
     display: inline-block;
     padding: .5em .5em;
 }
