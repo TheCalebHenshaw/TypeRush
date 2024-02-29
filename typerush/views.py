@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate,login, logout
 from django.contrib.auth.decorators import login_required
-from .models import Mode, Game
+from .models import Mode, Game, Player
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.http import HttpResponse
@@ -13,15 +13,14 @@ from .forms import UserForm, UserProfileForm
 def home(request):
     return render(request, 'typerush/home.html', {})
 
-from .models import Player
-
 def leaderboard(request):
     modes = Mode.objects.all()
     top_games_by_mode = {}
     for mode in modes:
         top_games = Game.objects.filter(mode=mode).order_by('-score')[:10]
         top_games_by_mode[mode] = top_games
-    return render(request, 'typerush/leaderboard.html', {'top_games_by_mode': top_games_by_mode})
+    user_instance = request.user
+    return render(request, 'typerush/leaderboard.html', {'top_games_by_mode': top_games_by_mode, 'user_instance': user_instance})
 
 def user_login(request):
     if request.method == 'POST':
@@ -72,7 +71,7 @@ def register(request):
         user_form = UserForm()
         profile_form = UserProfileForm()
 
-    return render(request, 'typerusj/register.html' ,
+    return render(request, 'typerush/register.html' ,
                   context= {'user_form' : user_form,
                             'profile_form' : profile_form,
                             'registered' : registered })
