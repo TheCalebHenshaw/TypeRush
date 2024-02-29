@@ -2,8 +2,17 @@ To-DO LIST:
 
 
 Caleb:
-Take out all the rango stuff
+Profile - use profile model
+Edit profile
 
 
+Take out all the rango stuff not needed
+URLs/View for Login, Register, Leaderboard, Game itself, Edit profile, Profile
 
-Fearghus:
+
+Populate the database
+
+
+Unit Testing?
+
+
