@@ -6,7 +6,7 @@ body{
 main {
     padding: 5% 0 5% 0;
     
-    display: inline flex;
+    display: flex;
     min-height: 50vh;
     gap: 20px 20px;
     border-radius: 10px;
@@ -16,12 +16,9 @@ main {
 .left-panel{
     display: flex;
     flex-direction: column;
-
-    width: 30%;
     gap: 20px;
     min-height: 50vh;
     border-radius: inherit;
-
     text-transform: uppercase;
 }
 
