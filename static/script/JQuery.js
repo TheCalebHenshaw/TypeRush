@@ -1,3 +1,8 @@
-$('.get-started-button').on('mouseenter', function() {
-    $(this).slideUp(500).fadeIn(500);
+document.addEventListener("DOMContentLoaded", function() {
+    const getStartedButton = document.querySelector(".get-started-button");
+    
+    getStartedButton.addEventListener("click", function() {
+        getStartedButton.style.marginLeft = "1000px";
+        getStartedButton.style.opacity = "0";
+    });
 });
