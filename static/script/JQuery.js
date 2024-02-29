@@ -1,7 +1,3 @@
-$('button').onclick(
-    function(){
-        $(this).animate(
-            {
-                'margin-right' : '+=200px'
-            },1000);
-        });
+$('.get-started-button').on('mouseenter', function() {
+    $(this).slideUp(500).fadeIn(500);
+});
