@@ -16,5 +16,21 @@
         Game Instruction not added yet. But it will look like this when added.
     </div>
         
-    <button class="button get-started-button">GET STARTED</button>
+    <button class="get-started-button">GET STARTED</button>
+
+{% endblock %}
+
+{% block javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.get-started-button').on('click', function(){
+                $(this).css(
+                    {
+                        'margin-right': '+=200px'
+                    }, 1000
+                );
+            });
+        });
+    </script>
 {% endblock %}
