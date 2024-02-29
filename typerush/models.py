@@ -7,7 +7,8 @@ from django.contrib.auth.models import User
 class Player(models.Model):
     # includes username and password
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    
+    firstname = models.CharField(max_length=128)
+    surname = models.CharField(max_length=128)
     country = models.CharField(max_length = 128)
     profile_picture = models.ImageField(upload_to='profile_images', blank=True)
     total_races = models.IntegerField(default=0) 
