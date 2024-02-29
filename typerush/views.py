@@ -17,6 +17,7 @@ from .models import Player
 def leaderboard(request):
     modes = Mode.objects.all()
     top_games_by_mode = {}
+    print("hi")
     for mode in modes:
         top_games = Game.objects.filter(mode=mode).order_by('-score')[:10]
         top_games_by_mode[mode] = top_games
