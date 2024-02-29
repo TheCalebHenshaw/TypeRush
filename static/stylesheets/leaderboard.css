@@ -134,7 +134,7 @@ th, td {
     justify-content: space-between;
 }
 
-button{
+.select-mode button{
     transition: all 0.5s;
     color: inherit;
     border: 1px solid #ddd;
@@ -142,7 +142,7 @@ button{
     padding: 5%;
 }
 
-button:hover {
+.select-mode button:hover {
     transition: all 0.5s;
     
     background-color: #ddd;
