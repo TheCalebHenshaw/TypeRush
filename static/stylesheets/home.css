@@ -24,10 +24,10 @@ main .instructions{
 }
 
 main .get-started-button{
-    border:none;
+    border: none;
     border-radius: 20px;
-    background-color: #FFF2D8;
-    color: #113946;
+    background-color: var(--white);
+    color: var(--black);
     text-align: center;
     padding: 16px;
     display: inline-block;
@@ -40,5 +40,7 @@ main .get-started-button{
 /* W3schools tutorial code for box-shadow*/
 main .get-started-button:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    background-color: white;
+    background-color: var(--purple);
+    border-color: var(--purple);
+    border:none;
 }
