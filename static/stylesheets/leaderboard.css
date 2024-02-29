@@ -125,7 +125,7 @@ th, td {
 .data-items #user-data #name{
     display: flex;
     flex-direction: column;
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
 .leaderboard-header{
