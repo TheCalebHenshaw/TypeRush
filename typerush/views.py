@@ -12,6 +12,7 @@ from .forms import UserForm, UserProfileForm
 # Create your views here.
 def home(request):
     return render(request, 'typerush/home.html', {})
+
 from .models import Player
 
 def leaderboard(request):

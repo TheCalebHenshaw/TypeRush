@@ -70,6 +70,7 @@
             </thead>
             <tbody>
             <tr class="data-items">
+                {% for game in top_games_by_mode %}
                 <td id="rank">1</td>
                 <td id="user-data">
                     <div id="profile-pic">
@@ -83,162 +84,9 @@
                             First Second
                         </div>
                     </div>
-                    
                 </td>
-                <td>53</td>
-            </tr>
-            <tr class="data-items">
-                <td id="rank">2</td>
-                <td id="user-data">
-                    <div id="profile-pic">
-                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
-                    </div>
-                    <div id="name">
-                        <div id="username">
-                            User
-                        </div>
-                        <div id="fullname">
-                            First Second
-                        </div>
-                    </div>
-                </td>
-                <td>53</td>
-            </tr>
-            <tr class="data-items">
-                <td id="rank">3</td>
-                <td id="user-data">
-                    <div id="profile-pic">
-                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
-                    </div>
-                    <div id="name">
-                        <div id="username">
-                            User
-                        </div>
-                        <div id="fullname">
-                            First Second
-                        </div>
-                    </div>
-                </td>
-                <td>53</td>
-            </tr>
-            <tr class="data-items">
-                <td id="rank">4</td>
-                <td id="user-data">
-                    <div id="profile-pic">
-                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
-                    </div>
-                    <div id="name">
-                        <div id="username">
-                            User
-                        </div>
-                        <div id="fullname">
-                            First Second
-                        </div>
-                    </div>
-                </td>
-                <td>53</td>
-            </tr>
-            <tr class="data-items">
-                <td id="rank">5</td>
-                <td id="user-data">
-                    <div id="profile-pic">
-                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
-                    </div>
-                    <div id="name">
-                        <div id="username">
-                            User
-                        </div>
-                        <div id="fullname">
-                            First Second
-                        </div>
-                    </div>
-                </td>
-                <td>53</td>
-            </tr>
-            <tr class="data-items">
-                <td id="rank">6</td>
-                <td id="user-data">
-                    <div id="profile-pic">
-                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
-                    </div>
-                    <div id="name">
-                        <div id="username">
-                            User
-                        </div>
-                        <div id="fullname">
-                            First Second
-                        </div>
-                    </div>
-                </td>
-                <td>53</td>
-            </tr>
-            <tr class="data-items">
-                <td id="rank">7</td>
-                <td id="user-data">
-                    <div id="profile-pic">
-                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
-                    </div>
-                    <div id="name">
-                        <div id="username">
-                            User
-                        </div>
-                        <div id="fullname">
-                            First Second
-                        </div>
-                    </div>
-                </td>
-                <td>53</td>
-            </tr>
-            <tr class="data-items">
-                <td id="rank">8</td>
-                <td id="user-data">
-                    <div id="profile-pic">
-                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
-                    </div>
-                    <div id="name">
-                        <div id="username">
-                            User
-                        </div>
-                        <div id="fullname">
-                            First Second
-                        </div>
-                    </div>
-                </td>
-                <td>53</td>
-            </tr>
-            <tr class="data-items">
-                <td id="rank">9</td>
-                <td id="user-data">
-                    <div id="profile-pic">
-                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
-                    </div>
-                    <div id="name">
-                        <div id="username">
-                            User
-                        </div>
-                        <div id="fullname">
-                            First Second
-                        </div>
-                    </div>
-                </td>
-                <td>53</td>
-            </tr>
-            <tr class="data-items">
-                <td id="rank">10</td>
-                <td id="user-data">
-                    <div id="profile-pic">
-                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
-                    </div>
-                    <div id="name">
-                        <div id="username">
-                            User
-                        </div>
-                        <div id="fullname">
-                            First Second
-                        </div>
-                    </div>
-                </td>
-                <td>53</td>
+                <td>{{ top_games_by_mode }}</td>
+                {% endfor %}
             </tr>
 
             <!-- Actual code that will be used -->
