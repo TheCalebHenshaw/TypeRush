@@ -16,3 +16,8 @@ Populate the database
 Unit Testing?
 
 
+˚୨୧⋆｡˚ ⋆
+mana's corner (sorry caleb for stealing ur space):
+-> will probably have to use AJAX ?
+-> what if we have three separate js files w a bunch of words for the game,,
+would that be easier to query from
