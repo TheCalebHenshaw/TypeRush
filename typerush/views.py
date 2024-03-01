@@ -75,4 +75,21 @@ def register(request):
                   context= {'user_form' : user_form,
                             'profile_form' : profile_form,
                             'registered' : registered })
+@login_required
+def profile(request):
+    player = request.user.player
+    return render(request, 'typerush/profile.html', {'player' : player})
+
+@login_required
+def edit_profile(request):
+    player = request.user.player
+    if request.method == 'POST':
+        form = UserForm(request.POST, request.FILES, instance=player)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = UserForm(instance=player)
+
+    return render(request, 'typerush/editprofile.html', {'form' : form})
 

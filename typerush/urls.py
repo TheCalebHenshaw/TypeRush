@@ -6,4 +6,6 @@ app_name = 'typerush'
 urlpatterns = [
     path('', views.home, name='home'),
     path('leaderboard/', views.leaderboard, name='leaderboard'),
+    path('profile/', views.profile, name='profile'),
+    path('edit-profile/', views.edit_profile, name='edit_profile')
 ]
