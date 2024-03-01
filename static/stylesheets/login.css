@@ -1,0 +1,77 @@
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px var(--teal);
+    border-radius: 10px;
+    color: var(--lightest);
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: var(--white);
+    text-align: center;
+}
+
+.user-box {
+    position: relative;
+}
+
+.user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: var(--white);
+    margin-bottom: 30px;
+    outline: none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--light-grey);
+}
+
+.user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: var(--medium);
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: var(--mint);
+    font-size: 12px;
+}
+
+.login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: var(--mint);
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+    border: 1px solid var(--mint);
+    border-radius: 5px;
+}
+
+.login-box form a:hover {
+    background: var(--mint);
+    color: var(--dark);
+    box-shadow: 0 0 5px var(--mint), 0 0 25px var(--mint), 0 0 50px var(--mint), 0 0 100px var(--mint);
+}

@@ -1,0 +1,32 @@
+{% extends 'typerush/base.html' %}
+
+{% load static %} 
+
+{% block title_block %}Login{% endblock %}
+
+{% block css %}
+{{ block.super }}
+<link href="{% static 'stylesheets/login.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block main_block %}
+<div class="login-box">
+    <h2>Login Form</h2>
+    <form action="">
+        <div class="user-box">
+            <input type="text" required>
+            <label for="">Username</label>
+        </div>
+        <div class="user-box">
+            <input type="password" required>
+            <label for="">Password</label>
+        </div>
+        <a href="">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>Submit
+        </a>
+    </form>
+</div>
+{% endblock %}

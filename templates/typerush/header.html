@@ -20,15 +20,17 @@
                 </button>
             </a>
             </li>
-            <li>
-                <button type="button">
+            <li><a href="{% url 'typerush:user_login' %}">
+                <button type="button" id="loginButton">
                     Log In
                 </button>
+            </a>
             </li>
-            <li>
-                <button type="button">
+            <li><a href="{% url 'typerush:register' %}">
+                <button type="button" id="register">
                     Sign Up
                 </button>
+            </a>
             </li>
         </ul>
 
