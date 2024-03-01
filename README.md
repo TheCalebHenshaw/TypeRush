@@ -5,9 +5,9 @@ typing game for our WAD2 group project
 
 
 _members:_
-‣ Lok Man Chan
-‣ Caleb Henshaw
-‣ Fearghus Kennedy
-‣ Eduardo Flores Lopez
-‣ Rayan Mohammed
+‣ Lok Man Chan <br />
+‣ Caleb Henshaw <br />
+‣ Fearghus Kennedy <br />
+‣ Eduardo Flores Lopez <br />
+‣ Rayan Mohammed <br />
 ‣ Manassanan Vongprai
