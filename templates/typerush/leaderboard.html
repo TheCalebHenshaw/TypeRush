@@ -1,6 +1,7 @@
 {% extends 'typerush/base.html' %}
 {% load staticfiles %}
 
+
 {% block title_block %}
     Leaderboard
 {% endblock %}
@@ -15,11 +16,11 @@
         <div class="rank-box">
             <div class="rank-display">
                 <h3>My Rank</h3>
-                <h2>2nd Place</h2>
+                <h2>{{ user_instance.rank }} Place</h2>
             </div>
             <div class="score-display">
                 <h3>My Score</h3>
-                <h2>100wpm</h2>
+                <h2>{{ user_instance.average_speed }}</h2>
             </div>
             
         </div>
@@ -29,10 +30,10 @@
             </div>
             
             <div class="profile-pic">
-                <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                <img src="{% static 'media/{{user_instance.profile_picture}}' %}" />
             </div>
             <div class="profile-title">
-                <h2 id="username">{{ user_instance.username }}</h2>
+                <h2 id="username">{{ user_instance.user }}</h2>
                 <h3 id="real-name"> {{user_instance.firstname}} {{user_instance.surname }}</h3>
             </div>
 

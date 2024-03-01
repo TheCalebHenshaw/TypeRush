@@ -7,8 +7,8 @@ from django.contrib.auth.models import User
 class Player(models.Model):
     # includes username and password
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    firstname = models.CharField(max_length=128)
-    surname = models.CharField(max_length=128)
+    firstname = models.CharField(max_length=128, blank=True)
+    surname = models.CharField(max_length=128, blank=True)
     country = models.CharField(max_length = 128)
     profile_picture = models.ImageField(upload_to='profile_images', blank=True)
     total_races = models.IntegerField(default=0) 
@@ -45,7 +45,7 @@ class Mode(models.Model):
 # get top 10 scores after sorting by descending order
 class Game(models.Model):
     mode = models.ForeignKey(Mode, on_delete = models.CASCADE)
-    userID = models.OneToOneField(Player, on_delete=models.CASCADE)
+    userID = models.ForeignKey(Player, on_delete=models.CASCADE)
     score = models.IntegerField(default=0)
 
     def __str__(self):

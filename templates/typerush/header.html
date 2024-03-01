@@ -8,14 +8,17 @@
 
     <nav>
         <ul class="header-nav-buttons">
-            <li><button type="button">
-                Home
-            </button>
+            <li><a href="{% url 'typerush:home' %}">
+                <button type="button" id="homeButton">
+                    Home
+                </button>
+            </a>
             </li>
-            <li>
-                <button type="button">
+            <li><a href="{% url 'typerush:leaderboard' %}">
+                <button type="button" id="leadButton">
                     Leaderboard
                 </button>
+            </a>
             </li>
             <li>
                 <button type="button">

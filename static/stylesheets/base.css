@@ -63,7 +63,6 @@ header {
     
 }
 nav {
-    margin: 1em 0 .5em;
     text-align: center;
 }
 
@@ -95,7 +94,6 @@ nav li,
     display: inline;
 }
 
-nav a,
 .footer-nav a {
     display: inline-block;
     padding: .5em .5em;
@@ -103,8 +101,30 @@ nav a,
     text-decoration: none;
 }
 
-nav a:hover, .footer-nav a:hover{
-    color: var(--white);
-    font-style: italic;
+.footer-nav a:hover{
+    color: var(--purple);
+    transition: all 0.5s;
 }
 
+.header-nav-buttons {
+    display: inline-flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    
+    button{
+        font-size: 1.5rem;
+        border: 1px solid var(--mint);
+        transition: all 0.5s;
+        background-color: var(--darker);
+        color: var(--white);
+        padding: 1rem;
+    }
+    button:hover {
+        border: 1px solid var(--purple);
+        transition: all 0.5s;
+        background-color: var(--purple);
+        color: var(--white);
+        padding: 1rem;
+
+    }
+}

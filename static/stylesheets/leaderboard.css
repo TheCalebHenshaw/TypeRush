@@ -16,6 +16,7 @@ main {
 .left-panel{
     display: flex;
     flex-direction: column;
+    flex: 30%;
     gap: 20px;
     min-height: 50vh;
     border-radius: inherit;
@@ -67,7 +68,7 @@ main {
     background-color: var(--darker);
 
     min-height: 50vh;
-    width: 50%;
+    flex: 70%;
     border: 1px solid var(--dark);
     border-radius: inherit;
 
