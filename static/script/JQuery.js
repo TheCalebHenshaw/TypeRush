@@ -1,8 +1,7 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const getStartedButton = document.querySelector(".get-started-button");
-    
-    getStartedButton.addEventListener("click", function() {
-        getStartedButton.style.marginLeft = "1000px";
-        getStartedButton.style.opacity = "0";
+$(document).ready(function() {
+    $(".get-started-button").click(function() {
+        $(this).animate({opacity: 0}, 100);
+        $(this).css("margin-left", "1000px"); 
+         
     });
 });
