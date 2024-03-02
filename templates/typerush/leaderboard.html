@@ -12,34 +12,37 @@
 {% endblock %}
 
 {% block main_block %}
-    <div class="left-panel">
-        <div class="rank-box">
-            <div class="rank-display">
-                <h3>My Rank</h3>
-                <h2>{{ user_instance.rank }} Place</h2>
+    {% if user.is_authenticated %}
+        <div class="left-panel">
+            <div class="rank-box">
+                <div class="rank-display">
+                    <h3>My Rank</h3>
+                    <h2>{{ user_instance.rank }} Place</h2>
+                </div>
+                <div class="score-display">
+                    <h3>My Score</h3>
+                    <h2>{{ user_instance.average_speed }}</h2>
+                </div>
+                
             </div>
-            <div class="score-display">
-                <h3>My Score</h3>
-                <h2>{{ user_instance.average_speed }}</h2>
-            </div>
-            
-        </div>
-        <div class="personal-info">
-            <div class="my-profile">
-                My Profile
-            </div>
-            
-            <div class="profile-pic">
-                <img src="{% static 'media/{{user_instance.profile_picture}}' %}" />
-            </div>
-            <div class="profile-title">
-                <h2 id="username">{{ user_instance.user }}</h2>
-                <h3 id="real-name"> {{user_instance.firstname}} {{user_instance.surname }}</h3>
+            <div class="personal-info">
+                <div class="my-profile">
+                    My Profile
+                </div>
+                
+                <div class="profile-pic">
+                    <img src="{% static 'media/{{user_instance.profile_picture}}' %}" />
+                </div>
+                <div class="profile-title">
+                    <h2 id="username">{{ user_instance.user }}</h2>
+                    <h3 id="real-name"> {{user_instance.firstname}} {{user_instance.surname }}</h3>
+                </div>
+
             </div>
 
         </div>
-
-    </div>
+    {% endif %}
+    
 
     <div class="right-panel">
         <div class="leaderboard-header">
@@ -88,6 +91,58 @@
                 </td>
                 <td>{{ top_games_by_mode }}</td>
                 {% endfor %}
+            </tr>
+            <!-- FOR TESTING ONLY. DELETE THIS AFTER POPULATION DATA MADE -->
+            <tr class="data-items">
+                <td id="rank">1</td>
+                <td id="user-data">
+                    <div id="profile-pic">
+                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                    </div>
+                    <div id="name">
+                        <div id="username">
+                            User
+                        </div>
+                        <div id="fullname">
+                            First Second
+                        </div>
+                    </div>
+                </td>
+                <td>53</td>
+            </tr>
+            <tr class="data-items">
+                <td id="rank">2</td>
+                <td id="user-data">
+                    <div id="profile-pic">
+                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                    </div>
+                    <div id="name">
+                        <div id="username">
+                            User
+                        </div>
+                        <div id="fullname">
+                            First Second
+                        </div>
+                    </div>
+                </td>
+                <td>53</td>
+            </tr>
+            <tr class="data-items">
+                <td id="rank">3</td>
+                <td id="user-data">
+                    <div id="profile-pic">
+                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                    </div>
+                    <div id="name">
+                        <div id="username">
+                            User
+                        </div>
+                        <div id="fullname">
+                            First Second
+                        </div>
+                    </div>
+                </td>
+                <td>53</td>
             </tr>
 
             <!-- Actual code that will be used -->

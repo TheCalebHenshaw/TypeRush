@@ -68,7 +68,7 @@ main {
     background-color: var(--darker);
 
     min-height: 50vh;
-    flex: 70%;
+    flex: 50%;
     border: 1px solid var(--dark);
     border-radius: inherit;
 
@@ -96,7 +96,7 @@ main {
 }
 
 .table-title{
-    font-size: x-large;
+    font-size: 1.5em;
     text-transform: uppercase;
     
 }
@@ -127,17 +127,21 @@ th, td {
 }
 
 .leaderboard-header{
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.select-mode button{
-    transition: all 0.5s;
-    color: inherit;
-    border: 1px solid #ddd;
-    background-color:var(--darkest);
-    padding: 5%;
+.select-mode {
+    margin: 0 5% 2% 0;
+    position: relative;
+    button{
+        transition: all 0.5s;
+        color: inherit;
+        border: 1px solid var(--mint);
+        background-color:var(--darkest);
+        padding: 7%;
+    }
 }
 
 .select-mode button:hover {
