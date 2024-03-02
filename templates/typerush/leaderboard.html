@@ -74,27 +74,31 @@
             </thead>
             <tbody>
             <tr class="data-items">
+
                 {% for game in top_games_by_mode %}
-                <td id="rank">1</td>
-                <td id="user-data">
-                    <div id="profile-pic">
-                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
-                    </div>
-                    <div id="name">
-                        <div id="username">
-                            User
-                        </div>
-                        <div id="fullname">
-                            First Second
-                        </div>
-                    </div>
-                </td>
-                <td>{{ top_games_by_mode }}</td>
+                    {% for player in game.userID %}
+                        <td id="rank">{{player.rank}}</td>
+                        <td id="user-data">
+                            <div id="profile-pic">
+                                <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                            </div>
+                            <div id="name">
+                                <div id="username">
+                                    {{player.user}}
+                                </div>
+                                <div id="fullname">
+                                    {{player.firstname}} {{player.surname}}
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{ top_games_by_mode }}</td>
+                    {% endfor %}
                 {% endfor %}
             </tr>
             <!-- FOR TESTING ONLY. DELETE THIS AFTER POPULATION DATA MADE -->
+            {% for i in '0123456789' %}
             <tr class="data-items">
-                <td id="rank">1</td>
+                <td id="rank">{{i}}</td>
                 <td id="user-data">
                     <div id="profile-pic">
                         <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
@@ -110,40 +114,8 @@
                 </td>
                 <td>53</td>
             </tr>
-            <tr class="data-items">
-                <td id="rank">2</td>
-                <td id="user-data">
-                    <div id="profile-pic">
-                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
-                    </div>
-                    <div id="name">
-                        <div id="username">
-                            User
-                        </div>
-                        <div id="fullname">
-                            First Second
-                        </div>
-                    </div>
-                </td>
-                <td>53</td>
-            </tr>
-            <tr class="data-items">
-                <td id="rank">3</td>
-                <td id="user-data">
-                    <div id="profile-pic">
-                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
-                    </div>
-                    <div id="name">
-                        <div id="username">
-                            User
-                        </div>
-                        <div id="fullname">
-                            First Second
-                        </div>
-                    </div>
-                </td>
-                <td>53</td>
-            </tr>
+            {% endfor %}
+            
 
             <!-- Actual code that will be used -->
             <!-- {% for leader in leaders %}
