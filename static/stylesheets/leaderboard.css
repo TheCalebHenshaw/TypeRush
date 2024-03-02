@@ -92,7 +92,7 @@ main {
 
 .profile-title #real-name {
     text-transform: capitalize;
-    color: var(--purple);
+    color: var(--mint);
 }
 
 .table-title{
@@ -113,7 +113,7 @@ th, td {
 }
 
 .data-items #user-data #fullname{
-    color: var(--purple);
+    color: var(--mint);
 }
 
 .data-items #user-data{
