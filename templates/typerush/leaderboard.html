@@ -20,7 +20,7 @@
                     <h2>{{ user_instance.rank }} Place</h2>
                 </div>
                 <div class="score-display">
-                    <h3>My Score</h3>
+                    <h3>Average Score</h3>
                     <h2>{{ user_instance.average_speed }}</h2>
                 </div>
                 
@@ -31,7 +31,7 @@
                 </div>
                 
                 <div class="profile-pic">
-                    <img src="{% static 'media/{{user_instance.profile_picture}}' %}" />
+                    <img src="{{ MEDIA_URL }}profile_images/{{user_instance.profile_picture}}" alt="profile-img"/>
                 </div>
                 <div class="profile-title">
                     <h2 id="username">{{ user_instance.user }}</h2>
@@ -74,13 +74,12 @@
             </thead>
             <tbody>
             <tr class="data-items">
-
                 {% for game in top_games_by_mode %}
                     {% for player in game.userID %}
                         <td id="rank">{{player.rank}}</td>
                         <td id="user-data">
                             <div id="profile-pic">
-                                <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                                <img src="{{ MEDIA_URL }}profile_images/{{player.profile_picture}}" alt="profile-img" />
                             </div>
                             <div id="name">
                                 <div id="username">
@@ -101,7 +100,7 @@
                 <td id="rank">{{i}}</td>
                 <td id="user-data">
                     <div id="profile-pic">
-                        <img src="{% static 'images/profile1.jpg' %}" alt="profile pic goes here" />
+                        <img src="{{ MEDIA_URL }}profile_images/profile1.jpg" alt="profile pic goes here" />
                     </div>
                     <div id="name">
                         <div id="username">
@@ -115,17 +114,7 @@
                 <td>53</td>
             </tr>
             {% endfor %}
-            
-
-            <!-- Actual code that will be used -->
-            <!-- {% for leader in leaders %}
-            <tr>
-                <td>{{ leader.rank }}</td>
-                <td>{{ leader.username }}</td>
-                <td>{{ leader.score }}</td>
-            </tr>
-            {% endfor %}
-             -->
+            <!-- END PART TO DELETE -->
             </tbody>
 
         </table>
