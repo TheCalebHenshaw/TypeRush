@@ -1,7 +1,38 @@
+@font-face {
+    font-family: 'CyberwayRiders';
+    src: local('CyberwayRiders'),
+         url('/static/fonts/CyberwayRiders.ttf') format("truetype");
+
+    /* font-family: 'FutureLight';
+    src: local('FutureLight'),
+        url('/static/fonts/FutureLight.ttf') format("truetype"); */
+    
+    /* font-family: 'StarTrebek';
+    src: local('StarTrebek'),
+        url('/static/fonts/StarTrebek.ttf') format("truetype"); */
+  
+    }
+@font-face {
+    font-family: 'KillerTech';
+    src: local('KillerTech'),
+        url('/static/fonts/KillerTech.ttf') format("truetype");
+}
+
+* {
+    font-family: 'KillerTech';
+}
+
+header button {
+    font-family: 'CyberwayRiders';
+}
+
+footer * {
+    font-family: 'CyberwayRiders';
+}
+
 html {
     height: 100%;
     width: 100%;
-    font-family:monospace;
     --black: #000000;
     --white: #ffffff;
     --darkest: #101010;
@@ -16,6 +47,7 @@ html {
     --navy: #211951;
     --purple: #836FFF;
     --mint: #15F5BA;
+    --mandarin: #EC7744;
     --light-grey: #F0F3FF;
 
     --primary: #7B16FF;
@@ -102,7 +134,7 @@ nav li,
 }
 
 .footer-nav a:hover{
-    color: var(--purple);
+    color: var(--mandarin);
     transition: all 0.5s;
 }
 
@@ -127,9 +159,10 @@ nav li,
         color: var(--white);
         padding: 1rem;*/
 
-        background: var(--mint);
+        background: var(--mandarin);
         color: var(--black);
-        box-shadow: 0 0 5px var(--mint), 0 0 25px var(--mint), 0 0 50px var(--mint), 0 0 100px var(--mint);
+        border-color: var(--mandarin);
+        box-shadow: 0 0 5px var(--mandarin), 0 0 25px var(--mandarin), 0 0 50px var(--mandarin), 0 0 100px var(--mandarin);
 
     }
 }

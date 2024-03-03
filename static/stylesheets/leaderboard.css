@@ -113,7 +113,7 @@ th, td {
 }
 
 .data-items #user-data #fullname{
-    color: var(--mint);
+    color: var(--purple);
 }
 
 .data-items #user-data{
@@ -147,8 +147,8 @@ th, td {
 .select-mode button:hover {
     transition: all 0.5s;
     
-    background-color: #ddd;
-    border:var(--darkest);
+    background-color: var(--purple);
+    border:1px solid var(--purple);
     color:var(--darkest);
 }
 
