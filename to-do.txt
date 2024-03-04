@@ -15,6 +15,10 @@ Populate the database
 
 Unit Testing?
 
+needed but havent implemented:
+- unit testing
+- requirements.txt file
+- do we have a population script
 
 ˚୨୧⋆｡˚ ⋆
 mana's corner (sorry caleb for stealing ur space):
