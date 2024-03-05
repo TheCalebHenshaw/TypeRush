@@ -93,3 +93,9 @@ def edit_profile(request):
 
     return render(request, 'typerush/editprofile.html', {'form' : form})
 
+
+@login_required
+# will add the correct context dictionary when i have better idea of how game is implemented
+def game_view(request):
+    return render(request, 'typerush/game.html')
+
