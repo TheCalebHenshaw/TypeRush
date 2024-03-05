@@ -1,7 +1,9 @@
 body, html {
     height: 100%;
     display: flex;
+    margin: 0;
     flex-direction: column;
+    overflow: hidden;
 }
 
 main {
@@ -20,7 +22,7 @@ main {
     margin: auto;
     margin-top: 80px;
     margin-bottom: 80px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     color: var(--lightest);
     box-shadow: 0 15px 25px var(--mint);
@@ -86,6 +88,7 @@ main {
 
 .login-box form a:hover {
     background: var(--mint);
+    color: var(--black);
     box-shadow: 0 0 5px var(--mint), 0 0 25px var(--mint), 0 0 50px var(--mint), 0 0 100px var(--mint);
 }
 
@@ -95,4 +98,14 @@ main {
         padding: 20px; 
     }
    
+}
+
+.back-video {
+    position: fixed; 
+    top: 130px;
+    left: 40px;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
 }
