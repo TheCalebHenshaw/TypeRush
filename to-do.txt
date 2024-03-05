@@ -11,7 +11,8 @@ URLs/View for Login, Register, Leaderboard, Game itself, Edit profile, Profile
 
 
 Populate the database
-
+make sure all urls are relative
+cookies?
 
 Unit Testing?
 
