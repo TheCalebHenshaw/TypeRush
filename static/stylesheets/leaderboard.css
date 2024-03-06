@@ -1,9 +1,7 @@
 @import url('/static/stylesheets/base.css');
 
-body{
-    margin: 0 20% 0 20%;
-}
 main {
+    margin: 0 20% 0 20%;
     padding: 5% 0 5% 0;
     
     display: flex;
