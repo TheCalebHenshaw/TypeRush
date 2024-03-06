@@ -1,0 +1,23 @@
+{ 
+    "_comment" : "source is https://preply.com/en/blog/300-most-common-english-words/",
+    "easy": [
+        "is",
+        "was",
+        "are",
+        "keep",
+        "carry",
+        "cut",
+        "talk",
+        "let",
+        "being",
+        "thought",
+        "saw",
+        "follow",
+        "put",
+        "does",
+        "need",
+        "read"
+
+    ]
+
+}

@@ -10,4 +10,5 @@ urlpatterns = [
     path('edit-profile/', views.edit_profile, name='edit_profile'),
     path('login/', views.user_login, name='user_login'),
     path('register/', views.register, name='register'),
+    path('game/', views.game_view,name='game'),
 ]
