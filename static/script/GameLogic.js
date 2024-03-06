@@ -1,3 +1,13 @@
+let count = 60;
+let timer;
+
+
+function startTimer() {
+    timer = setInterval(update, 1000);
+}
+
+
+
 fetch('static/data/words.json')
     .then(response => response.json())
     .then(wordsToType => {
@@ -8,6 +18,7 @@ fetch('static/data/words.json')
 
             if (charTyped === '\n' || charTyped === '\r') {
                 //This should listen if they press enter
+                startTimer();
 
             }
         });
