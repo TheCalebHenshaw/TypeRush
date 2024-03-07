@@ -1,7 +1,6 @@
 {% extends 'typerush/base.html' %}
 {% load static %}
 
-
 {% block title_block %}
     Leaderboard
 {% endblock %}
@@ -23,26 +22,21 @@
                     <h3>Average Score</h3>
                     <h2>{{ user_instance.average_speed }}</h2>
                 </div>
-                
             </div>
             <div class="personal-info">
                 <div class="my-profile">
                     My Profile
                 </div>
-                
                 <div class="profile-pic">
-                    <img src="{{ MEDIA_URL }}profile_images/{{user_instance.profile_picture}}" alt="profile-img"/>
+                    <img src="{{ MEDIA_URL }}profile_images/{{ user_instance.profile_picture }}" alt="profile-img"/>
                 </div>
                 <div class="profile-title">
-                    <h2 id="username">{{ user_instance.user }}</h2>
-                    <h3 id="real-name"> {{user_instance.firstname}} {{user_instance.surname }}</h3>
+                    <h2 id="username">{{ user_instance.user.username }}</h2>
+                    <h3 id="real-name">{{ user_instance.firstname }} {{ user_instance.surname }}</h3>
                 </div>
-
             </div>
-
         </div>
     {% endif %}
-    
 
     <div class="right-panel">
         <div class="leaderboard-header">
@@ -59,48 +53,31 @@
                 <button type="button">
                     Hard
                 </button>
-    
             </div>
-
         </div>
         
         <table>
             <thead>
-            <tr class="table-header">
-                <th>Rank</th>
-                <th>Racer</th>
-                <th>Score</th>
-            </tr>
+                <tr class="table-header">
+                    <th>Rank</th>
+                    <th>Racer</th>
+                    <th>Score</th>
+                </tr>
             </thead>
-            <body>
-                <h1>Leaderboard</h1>
+            <tbody>
                 {% for mode, top_games in top_games_by_mode.items %}
-                    <h2>{{ mode.difficulty }}</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Rank</th>
-                                <th>Player</th>
-                                <th>Score</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for game in top_games %}
-                                <tr>
-                                    <td>{{ forloop.counter }}</td>
-                                    <td>{{ game.player.user.username }}</td>
-                                    <td>{{ game.score }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                    <tr>
+                        <td colspan="3" class="mode-title">{{ mode.difficulty }}</td>
+                    </tr>
+                    {% for game in top_games %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ game.user.user.username }}</td>
+                            <td>{{ game.score }}</td>
+                        </tr>
+                    {% endfor %}
                 {% endfor %}
-            
-               
-            </body>
-
+            </tbody>
         </table>
-
     </div>
-
 {% endblock %}

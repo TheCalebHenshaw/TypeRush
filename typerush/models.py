@@ -48,8 +48,9 @@ class Game(models.Model):
     user = models.ForeignKey(Player, on_delete=models.CASCADE)
     score = models.IntegerField(default=0)
 
+  
     def __str__(self):
-        return f"{self.user.user.username}: {self.mode.difficulty} score: {self.score}"
+        return f"{self.user.username}: {self.mode.difficulty} score: {self.score}"
 
 
 
