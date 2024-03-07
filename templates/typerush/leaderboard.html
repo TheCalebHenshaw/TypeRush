@@ -72,50 +72,32 @@
                 <th>Score</th>
             </tr>
             </thead>
-            <tbody>
-            <tr class="data-items">
-                {% for game in top_games_by_mode %}
-                    {% for player in game.userID %}
-                        <td id="rank">{{player.rank}}</td>
-                        <td id="user-data">
-                            <div id="profile-pic">
-                                <img src="{{ MEDIA_URL }}profile_images/{{player.profile_picture}}" alt="profile-img" />
-                            </div>
-                            <div id="name">
-                                <div id="username">
-                                    {{player.user}}
-                                </div>
-                                <div id="fullname">
-                                    {{player.firstname}} {{player.surname}}
-                                </div>
-                            </div>
-                        </td>
-                        <td>{{ top_games_by_mode }}</td>
-                    {% endfor %}
+            <body>
+                <h1>Leaderboard</h1>
+                {% for mode, top_games in top_games_by_mode.items %}
+                    <h2>{{ mode.difficulty }}</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Player</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for game in top_games %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ game.player.user.username }}</td>
+                                    <td>{{ game.score }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 {% endfor %}
-            </tr>
-            <!-- FOR TESTING ONLY. DELETE THIS AFTER POPULATION DATA MADE -->
-            {% for i in '0123456789' %}
-            <tr class="data-items">
-                <td id="rank">{{i}}</td>
-                <td id="user-data">
-                    <div id="profile-pic">
-                        <img src="{{ MEDIA_URL }}profile_images/profile1.jpg" alt="profile pic goes here" />
-                    </div>
-                    <div id="name">
-                        <div id="username">
-                            User
-                        </div>
-                        <div id="fullname">
-                            First Second
-                        </div>
-                    </div>
-                </td>
-                <td id="score">53</td>
-            </tr>
-            {% endfor %}
-            <!-- END PART TO DELETE -->
-            </tbody>
+            
+               
+            </body>
 
         </table>
 
