@@ -22,7 +22,8 @@ def add_player():
 def add_mode():
     pass
 
-
+def fill_leaderboard():
+    pass
 
 
 #Main Method Execution
