@@ -6,6 +6,6 @@ $(document).ready(function() {
             return "Are you sure you want to leave?";
         };
         $(this).animate({opacity: 0}, 100);
-        $(this).css("margin-left", "1000px"); 
+        $(this).css("margin-left", "1001px"); 
     });
 });
