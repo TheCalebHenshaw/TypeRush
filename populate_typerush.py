@@ -16,7 +16,7 @@ def populate():
     # Create players
     players = []
     for i, user in enumerate(users, start=1):
-        player = Player.objects.create(user=user, firstname=f'Player{i}', surname=f'User{i}', country='USA', total_races=10, average_speed=50)
+        player = Player.objects.create(user=user, firstname=f'Player{i}', surname=f'User{i}', country='USA', total_races=5, average_speed=50)
         players.append(player)
 
     # Populate Leaderboard model
@@ -41,7 +41,7 @@ def populate():
 
         # Populate Game model
         for player in players:
-            for i in range(1, 11):  # Add 10 games for each mode and player
+            for i in range(1, 6):  # Add 5 games for each mode and player
                 score = random.randint(0,50) # Example score (decreasing for demonstration)
                 Game.objects.create(mode=mode, user=player, score=score)
 
