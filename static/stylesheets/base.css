@@ -140,7 +140,7 @@ nav li,
         border: 1px solid var(--mint);
         transition: all 0.5s;
         border-radius: 10px;
-        background-color: var(--darker);
+        background-color: var(--black);
         color: var(--white);
         padding: 1rem;
     }
@@ -178,6 +178,7 @@ body{
     margin: auto;
     width: 90vw;
     z-index: -1;
+    color: #000;
 }
   
 .line{
@@ -186,7 +187,8 @@ body{
     height: 100%;
     top: 0;
     left: 5%;
-    background: rgba(255, 255, 255, 0.1);
+    background: #000;
+    /*background: rgba(255, 255, 255, 0.1);*/
     overflow: hidden;
 
     &::after{
