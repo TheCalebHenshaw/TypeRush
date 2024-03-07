@@ -44,15 +44,13 @@ class Mode(models.Model):
 # stores all game instances, filter by mode to display on leaderboard, 
 # get top 10 scores after sorting by descending order
 class Game(models.Model):
-    mode = models.ForeignKey(Mode, on_delete = models.CASCADE)
-    userID = models.ForeignKey(Player, on_delete=models.CASCADE)
+    mode = models.ForeignKey(Mode, on_delete=models.CASCADE)
+    user = models.ForeignKey(Player, on_delete=models.CASCADE)
     score = models.IntegerField(default=0)
 
     def __str__(self):
-        return (self.userID + ": " + self.difficulty + " score: " + self.current_score)
-    
+        return f"{self.user.user.username}: {self.mode.difficulty} score: {self.score}"
 
-    
 
 
 

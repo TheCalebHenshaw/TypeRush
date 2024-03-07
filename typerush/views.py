@@ -6,6 +6,7 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.http import HttpResponse
 from .forms import UserForm, UserProfileForm
+from .models import Game
 
 
 
