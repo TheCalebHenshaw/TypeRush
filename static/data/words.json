@@ -17,18 +17,35 @@
         "put",
         "does",
         "need",
-        "read"
+        "read",
+        "caleb",
+        "ray"
 
     ],
+    "_comment3" : "source is /",
+    "medium": [
+        "aggressive",
+        "futuristic",
+        "eduardo",
+        "vanessa",
+        "fearghus",
+        "bologna",
+        "dysentery"
+    ],
 
-    "medium": [],
+
     "hard": [
         "gobbledegook",
         "chiaroscurist",
         "zyzzyva",
         "molybdenum",
         "anhydrouscopersulphate",
-        "eduardo"
+        "watthanaprasongseree",
+        "gubernatorial",
+        "paracetamol",
+        "ophthalmologist",
+        "discombobulate",
+        "kakorrhaphiophobia"
     ]
 
 }
