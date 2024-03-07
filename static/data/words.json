@@ -1,5 +1,6 @@
 { 
     "_comment" : "source is https://preply.com/en/blog/300-most-common-english-words/",
+    "_comment2" : "16 words currently",
     "easy": [
         "is",
         "was",
@@ -21,6 +22,13 @@
     ],
 
     "medium": [],
-    "hard": []
+    "hard": [
+        "gobbledegook",
+        "chiaroscurist",
+        "zyzzyva",
+        "molybdenum",
+        "anhydrouscopersulphate",
+        "eduardo"
+    ]
 
 }
