@@ -23,6 +23,8 @@ def leaderboard(request):
     user_instance = request.user
     return render(request, 'typerush/leaderboard.html', {'top_games_by_mode': top_games_by_mode, 'user_instance': user_instance})
 
+
+
 def user_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -31,21 +33,15 @@ def user_login(request):
 
         if user:
             if user.is_active:
-                login(request,user)
-                return redirect(reverse('typrush:home'))
+                login(request, user)
+                return redirect(reverse('typerush:home'))  # Redirect to home page after successful login
             else:
-                return HttpResponse("Your typerush account is disabled.")
+                return HttpResponse("Your TypeRush account is disabled.")
         else:
             print(f"Invalid login details: {username}, {password}")
             return HttpResponse("Invalid login details supplied.")
     else:
         return render(request, 'typerush/login.html')
-
-
-@login_required
-def user_logout(request):
-    logout(request)
-    return redirect(reverse('typerush:home'))
 
 def register(request):
     registered = False
