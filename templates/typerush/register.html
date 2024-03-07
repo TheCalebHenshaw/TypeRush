@@ -1,1 +1,41 @@
-idr g uidahgb irdahg8ardehg
+idr g uidahgb irdahg8ardehg{% extends 'typerush/base.html' %}
+
+{% load static %} 
+
+{% block title_block %}Register{% endblock %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link href="{% static 'stylesheets/register.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block main_block %}
+<div class="register-box">
+    
+    <h2>Register</h2>
+    <form action="">
+        <div class="upload">
+            <img src="{% static 'images/usercircle1.png' %}" width=100 heigt=100 alt="" style="color: #15F5BA;">
+            <div class="round">
+                <input type="file">
+                <i class="fa fa-camera" style="color: #000000;"></i>
+            </div>
+        </div>
+        <div class="user-box">
+            <input type="text" required>
+            <label for="">Set Username</label>
+        </div>
+        <div class="user-box">
+            <input type="password" required>
+            <label for="">Set Password</label>
+        </div>
+        <a href="">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>Submit
+        </a>
+    </form>
+</div>
+{% endblock %}

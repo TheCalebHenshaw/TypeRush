@@ -126,7 +126,7 @@ nav li,
 }
 
 .footer-nav a:hover{
-    color: var(--mandarin);
+    color: var(--purple);
     transition: all 0.5s;
 }
 
@@ -151,10 +151,10 @@ nav li,
         color: var(--white);
         padding: 1rem;*/
 
-        background: var(--mandarin);
-        color: var(--black);
-        border-color: var(--mandarin);
-        box-shadow: 0 0 5px var(--mandarin), 0 0 25px var(--mandarin), 0 0 50px var(--mandarin), 0 0 100px var(--mandarin);
+        background: var(--purple);
+        color: var(--white);
+        border-color: var(--purple);
+        box-shadow: 0 0 5px var(--purple), 0 0 25px var(--purple), 0 0 50px var(--purple), 0 0 100px var(--purple);
 
     }
 }
