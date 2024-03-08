@@ -38,7 +38,7 @@ def update_leaderboard(request):
     request.session['mode'] = mode
 
     top_games = get_games(mode)
-
+    print(top_games)
     # Prepare the data to be returned in JSON format
     leaderboard_data = []
     for game in top_games:

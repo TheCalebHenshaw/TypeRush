@@ -32,6 +32,7 @@ $(document).ready(function(){
             leaderboardBody.append(
                 `<tr>
                     <td>${index + 1}</td>
+                    // doesnt work  -> ${game.user.profile_picture} 
                     <td>${game.user}</td>
                     <td>${game.score}</td>
                 </tr>`
