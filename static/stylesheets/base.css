@@ -17,13 +17,18 @@
     src: local('KillerTech'),
         url('/static/fonts/KillerTech.ttf') format("truetype");
 }
+@font-face {
+    font-family: 'Megabeat';
+    src: local('Megabeat'),
+        url('/static/fonts/Megabeat.ttf') format("truetype");
+    
+}
 
 * {
-    font-family: 'KillerTech'; 
+    font-family: 'Megabeat'; 
 }
 
 header * {
-    font-family: 'CyberwayRiders';
     margin: .2em;
 }
 
