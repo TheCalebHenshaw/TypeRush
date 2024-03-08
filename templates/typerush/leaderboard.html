@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block main_block %}
+
     {% if user.is_authenticated %}
         <div class="left-panel">
             <div class="rank-box">
@@ -40,23 +41,23 @@
 
     <div class="right-panel">
         <div class="leaderboard-header">
-            <div class="table-title">
+            <div class="table-title">  
                 Leaderboard
             </div>
             <div class="select-mode">
-                <button type="button">
+                <button type="button" class="selectMode selected" data-mode=1>
                     Easy
                 </button>
-                <button type="button">
+                <button type="button" class="selectMode" data-mode=2>
                     Medium
                 </button>
-                <button type="button">
+                <button type="button" class="selectMode" data-mode=3>
                     Hard
                 </button>
             </div>
         </div>
         
-        <table>
+        <table id = "leaderboard">
             <thead>
                 <tr class="table-header">
                     <th>Rank</th>
@@ -65,19 +66,19 @@
                 </tr>
             </thead>
             <tbody>
-                {% for mode, top_games in top_games_by_mode.items %}
-                    <tr>
-                        <td colspan="3" class="mode-title">{{ mode.difficulty }}</td>
-                    </tr>
+                {% if mode == 1 %}
                     {% for game in top_games %}
-                        <tr>
-                            <td>{{ forloop.counter }}</td>
-                            <td>{{ game.user.user.username }}</td>
-                            <td>{{ game.score }}</td>
-                        </tr>
+                    <tr>
+                        <td>{{ forloop.counter}}</td>
+                        <td>{{game.user}}</td>
+                        <td>{{game.score}}</td>
+                    </tr>
                     {% endfor %}
-                {% endfor %}
+
+                {% endif %}
             </tbody>
         </table>
     </div>
+
+<script src="{% static 'script/SelectingModes.js' %}"></script>
 {% endblock %}

@@ -1,9 +1,9 @@
+from dataclasses import dataclass
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 
 # Create your models here.
-
 class Player(models.Model):
     # includes username and password
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -50,7 +50,7 @@ class Game(models.Model):
 
   
     def __str__(self):
-        return f"{self.user.username}: {self.mode.difficulty} score: {self.score}"
+        return f"{self.user}: {self.mode.difficulty} score: {self.score}"
 
 
 
