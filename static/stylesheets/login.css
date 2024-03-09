@@ -127,3 +127,19 @@ main {
     border-color: var(--purple);
     box-shadow: 0 0 5px var(--purple), 0 0 25px var(--purple), 0 0 50px var(--purple), 0 0 100px var(--purple);
 }
+
+/* slightly better than before */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+
+    -webkit-text-fill-color: var(--white);
+    -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+    background-color: var(--bg);
+}
