@@ -99,6 +99,11 @@ def register(request):
                   context= {'user_form' : user_form,
                             'profile_form' : profile_form,
                             'registered' : registered })
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return redirect('typerush:home')
 @login_required
 def profile(request):
     player = request.user.player
