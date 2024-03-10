@@ -54,7 +54,8 @@ main {
     width: 17vh;
     border-radius: 50%;
 }
-.data-items img {
+
+td img {
     border-radius: 50%;
     height: 5vh;
     width: 5vh;

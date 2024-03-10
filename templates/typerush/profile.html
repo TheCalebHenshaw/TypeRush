@@ -1,5 +1,5 @@
 {% extends 'typerush/base.html' %}
-{% load static %}
+{% load static %} 
 
 {% block title_block %}
     Profile
@@ -10,7 +10,75 @@
 {% endblock %}
 
 {% block main_block %}
-<div class = "top-panel"></div>
+    <div class="profile-card">
+        <div class="profile-header"><!-- profile header section -->
+            <div class="main-profile">
+                <div class="profile-image">
+                    <img src="{{ MEDIA_URL }}profile_images/profile11.jpeg" alt="profile-img"/>
 
-<div class = "bottom-panel"></div>
+                </div>
+                <div class="profile-names">
+                    <h1 class="username">Username {{ user.user.username }}</h1>
+                    <h2 class="fullname">Firstname Lastname {{ user.firstname }} {{ user.surname }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-body"><!-- profile body section -->
+            <div class="profile-actions">
+                <button class="rank">Rank {{ user.rank}}</button>
+                <button class="country">Country {{user.country}}</button>
+                
+            </div>
+
+            <div class="data">
+                <div class="important-data">
+                    <section class="data-item">
+                        <h3 class="value">104</h3>
+                        <small class="title">Races</small>
+                    </section>
+                    <section class="data-item">
+                        <h3 class="value">100WPM</h3>
+                        <small class="title">Average Speed</small>
+                    </section>
+                    </section>
+                    <section class="data-item">
+                        <h3 class="value">70WPM</h3>
+                        <small class="title">Highscore</small>
+                    </section>
+                </div>
+                <div class="other-data">
+                    <section class="data-item">
+                        <h3 class="value">28WPM</h3>
+                        <small class="title">Last Race</small>
+                    </section>
+                    <section class="data-item">
+                        <h3 class="value">Today</h3>
+                        <small class="title">Last Active</small>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="history">
+            <h1> Player History </h1>
+            <table id = "leaderboard">
+                <thead>
+                    <tr class="table-header">
+                        <th>Race Mode</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for game in user_games %}
+                    <tr>
+                        <td>{{game.mode}}</td>
+                        <td>{{game.score}}</td>
+                    </tr>
+                    {% endfor %}
+    
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
 {% endblock %}

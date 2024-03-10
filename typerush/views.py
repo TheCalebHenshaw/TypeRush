@@ -21,7 +21,6 @@ def get_games(mode):
         top_games = Game.objects.filter(mode=mode).order_by('-score')[:10]
         return top_games
     except Exception as e:
-        # Handle the exception gracefully (e.g., log the error, return an empty queryset)
         print(f"Error fetching games: {e}")
         return Game.objects.none()
     
@@ -104,10 +103,10 @@ def register(request):
 def user_logout(request):
     logout(request)
     return redirect('typerush:home')
-@login_required
+#@login_required
 def profile(request):
-    player = request.user.player
-    return render(request, 'typerush/profile.html', {'player' : player})
+    #player = request.user.player
+    return render(request, 'typerush/profile.html') #, {'player' : player})
 
 @login_required
 def edit_profile(request):
