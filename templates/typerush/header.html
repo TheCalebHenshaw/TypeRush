@@ -21,6 +21,16 @@
                 </button>
             </a>
             </li>
+            {% if user.is_authenticated %}
+
+            <li><a href="{% url 'typerush:profile' %}">
+                <button type="button" id="profileButton">
+                    My Profile
+                </button>
+            </a>
+            </li>
+
+            {% else %}
             <li><a href="{% url 'typerush:user_login' %}">
                 <button type="button" id="loginButton">
                     Log In
@@ -33,6 +43,7 @@
                 </button>
             </a>
             </li>
+            {% endif %}
         </ul>
         
     </nav>
