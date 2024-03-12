@@ -6,6 +6,8 @@ let totalChars = 0;
 let correct = 0;
 let wrong = 0;
 
+
+// timer works (i tried it on dummy boxes)
 function startTimer() {
     let minutes = Math.floor(count/60);
     let seconds = count%60;
@@ -15,7 +17,7 @@ function startTimer() {
     }
 
     // write code to display on screen
-    document.getElementById("idkidonthaveatemplatetoworkwith").textContent = minutes + ":" + seconds;
+    document.getElementById("idk we dont have a template to work with").textContent = minutes + ":" + seconds;
 
     if (count === 0) {
         clearInterval(timer);
@@ -47,6 +49,7 @@ fetch('static/data/words.json')
     })
 
 
+
 // answer is whatever the user types into the textbox
 // 'word' is given word
 function checkSpelling(answer, word) {
@@ -61,7 +64,7 @@ function checkSpelling(answer, word) {
 
 function startGame() {
     timer = setInterval(startTimer, 1000);
-    // note to self and edu: write function to display words onto box
+    displayWords();
 
 
     /*while (count != 0) {
@@ -70,15 +73,26 @@ function startGame() {
     }*/
 
 }
-         
+
+function displayWords() {
+    if (count > 0) {
+        // generate a random word or get a word from a list
+        let currentWord;
+        document.getElementById("we dont have a template to work with").textContent = currentWord;
+    }
+}
+
+
 function endGame() {
     // end game logic
     calculateWPM();
+    // send results to database and bring user to endscreen
 }
 
 
 function getWord() {
     // get the current word from list of words in random order
+    // we might not even need this guy
 }
 
 
@@ -91,3 +105,7 @@ function countChars(word) {
 function calculateWPM() {
     return (totalChars / 5);
 }
+
+
+
+// insert logic for dynamically changing word color to red if user types wrong here
