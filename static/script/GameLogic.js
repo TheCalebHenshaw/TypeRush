@@ -1,9 +1,23 @@
 let count = 60;
 let timer;
 
-
 function startTimer() {
-    timer = setInterval(update, 1000);
+    let minutes = Math.floor(count/60);
+    let seconds = count%60;
+
+    if (seconds < 10) {
+        seconds = '0' + seconds;
+    }
+
+    // write code to display on screen
+
+    if (count === 0) {
+        // end game
+    } else {
+        count--;
+    }
+
+    timer = setInterval(startTimer, 1000);
 }
 
 
