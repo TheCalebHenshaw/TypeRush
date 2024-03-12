@@ -29,10 +29,11 @@ $(document).ready(function(){
         leaderboardBody.empty(); // Clear the existing leaderboard content
         // Append the new leaderboard data to the DOM
         $.each(response.top_games, function(index, game){
+            console.log(game.user.profile_picture)
             leaderboardBody.append(
                 `<tr>
                     <td>${index + 1}</td>
-                    <td><img src="{{ MEDIA_URL }}profile_images/${game.user.profile_picture}" alt="profile-img"/> ${game.user}</td>
+                    <td><img src="${MEDIA_URL}/profile_images/${game.profile_picture}" alt="profile-img"/> ${game.user}</td>
                     <td>${game.score}</td>
                 </tr>`
             );

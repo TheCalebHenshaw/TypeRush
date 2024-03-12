@@ -44,8 +44,9 @@ def update_leaderboard(request):
         leaderboard_data.append({
             'user': game.user.user.username,
             'score': game.score,
+            'profile_picture': game.user.profile_picture.name
             })
-
+    # print(leaderboard_data)
     # Return the leaderboard data as JSON response
     return JsonResponse({'top_games': leaderboard_data})
 
