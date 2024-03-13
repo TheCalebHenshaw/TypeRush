@@ -29,6 +29,12 @@ def populate():
                 player.profile_picture.name = f'profile{i}.jpg'
                 player.save(update_fields=['profile_picture'])
 
+
+                # with open(profile_photo_path, 'rb') as f:
+                #     player.profile_picture.save(f'profile{i}.jpg', File(f))
+                #     print(player.profile_picture)
+        
+
     # Populate Leaderboard model
     easyleaderboard = Leaderboard.objects.create(title='Easy Leaderboard')
     mediumleaderboard = Leaderboard.objects.create(title='Medium Leaderboard')
