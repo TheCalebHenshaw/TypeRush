@@ -26,4 +26,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('typerush/', include('typerush.urls')),
     path('admin/', admin.site.urls),
+    path('get-json-data/', views.get_json_data, name='get_json_data'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

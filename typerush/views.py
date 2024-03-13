@@ -9,6 +9,7 @@ from .forms import UserForm, UserProfileForm
 from .models import Game
 from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_exempt
+import json
 
 
 # Create your views here.
@@ -128,3 +129,16 @@ def edit_profile(request):
 def game_view(request):
     return render(request, 'typerush/game.html')
 
+
+# loads words from json file into game
+def get_json_data(request):
+    json_file_path = 'static/data/words.json'
+
+    try:
+        with open(json_file_path, 'r') as file:
+            json_data = json.load(file)
+        return JsonResponse(json_data)
+    except FileNotFoundError:
+        return JsonResponse({'error': 'file not found'}, status=404)
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'invalid json format'}, status=500)

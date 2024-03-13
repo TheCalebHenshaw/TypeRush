@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    fetch('../data/words.json')
+    fetch('/get-json-data/')
     .then(response => response.json())
     .then(data => {
         wordsToType = data[currentCategory]; 
