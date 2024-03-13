@@ -12,7 +12,9 @@ HippoType
 
 {% block header_block %}
 <div id="header">
-    <div id="info"></div>
+    <div id="info">
+        
+    </div>
     <div id="buttons">
         <button id="newGameBtn">New game</button>
     </div>
@@ -21,6 +23,7 @@ HippoType
 
 {% block main_block %}
 <main>
+    <div>time: <span id="timer">1:00</span></div>
     <h1>
         <!-- SVG content here as before, omitted for brevity -->
         Type Rush
@@ -29,6 +32,9 @@ HippoType
         <div id="words"></div>
         <div id="cursor"></div>
         <div id="focus-error">Click here to start!</div>
+        <div id="textbox-container" style="display: none;">
+            <input type="text" id="user-input" placeholder="type here..">
+        </div>
     </div>
 </main>
 {% endblock %}
@@ -36,4 +42,5 @@ HippoType
 
 
 {% block script %}
+<script src="{% static 'script/GameLogic.js' %}"></script>
 {% endblock %}

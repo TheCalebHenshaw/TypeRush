@@ -83,9 +83,10 @@ div#game:focus {
     color: var(--mandarin);
 }
 
+/*
 #game:focus #focus-error {
     display: none;
-}
+} */
 
 div.word {
     display: inline-block;
