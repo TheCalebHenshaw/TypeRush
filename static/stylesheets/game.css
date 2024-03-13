@@ -85,7 +85,7 @@ div#game:focus {
 
 #game:focus #focus-error {
     display: none;
-}
+} 
 
 div.word {
     display: inline-block;
@@ -99,6 +99,37 @@ div.word {
 
 .letter.incorrect {
     color: var(--mandarin);
+}
+
+#game.over #words {
+    opacity: .5;
+    filter: blur(0px);
+}
+
+#game.over:focus #cursor {
+    display: none;
+}
+
+#game.over #focus-error {
+    display: none;
+}
+
+#textbox-container {
+    position: relative; 
+}
+
+#textbox-container input[type="text"] {
+    background-color: transparent; 
+    color: white;
+    border: none; 
+    border-bottom: 1px solid white; 
+    border-radius: 0; 
+    padding: 10px;
+    width: 500px;
+    height: 30px;
+    font-size: 16px; 
+    outline: none;
+    caret-color: var(--purple); 
 }
 
 @keyframes blink {
@@ -122,19 +153,21 @@ div.word {
     animation: blink .3s infinite;
 }
 
-#game:focus #cursor {
-    display: block;
+#textbox-container input[type="text"]:focus {
+    border-bottom: 1px solid var(--mint);
 }
 
-#game.over #words {
-    opacity: .5;
-    filter: blur(0px);
+#textbox-container input[type="text"]::selection {
+    background-color: rgba(128, 0, 128, 0.3); 
 }
 
-#game.over:focus #cursor {
-    display: none;
+#textbox-container input[type="text"]::placeholder {
+    color: gray; 
 }
 
-#game.over #focus-error {
-    display: none;
+#textbox-container input[type="text"]::after {
+    content: '';
+    width: 2px; 
+    background-color: var(--purple); 
+    animation: blink 0.3s infinite; 
 }
