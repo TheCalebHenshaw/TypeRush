@@ -17,6 +17,12 @@
     src: local('KillerTech'),
         url('/static/fonts/KillerTech.ttf') format("truetype");
 }
+
+@font-face {
+    font-family: 'FutureLight';
+    src: local('FutureLight'),
+        url('/static/fonts/FutureLight.ttf') format("truetype");
+}
 @font-face {
     font-family: 'Megabeat';
     src: local('Megabeat'),
@@ -25,7 +31,7 @@
 }
 
 * {
-    font-family: 'Megabeat'; 
+    font-family: 'FutureLight'; 
 }
 
 header * {
