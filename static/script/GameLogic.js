@@ -25,14 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    
-    const focusErrorElement = document.querySelector('#focus-error');
-
-
-    focusErrorElement.addEventListener('click', function() {
-        startGame();
-    });
-
     fetch('static/data/words.json')
         .then(response => response.json())
         .then(wordsToType => {
