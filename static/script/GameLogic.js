@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let timer;
     let totalChars = 0;
     let wordsToType = [];
+    let currentCategory = 'easy'; 
 
     function startTimer() {
         let minutes = Math.floor(count / 60);
@@ -22,18 +23,19 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    fetch('static/data/words.json')
-        .then(response => response.json())
-        .then(words => {
-            wordsToType = words;
-            displayWords();
-            document.addEventListener('keypress', function(event) {
-                var charTyped = String.fromCharCode(event.which);
-                if (charTyped === '\n' || charTyped === '\r') {
-                    startGame();
-                }
-            });
+    fetch('../data/words.json')
+    .then(response => response.json())
+    .then(data => {
+        wordsToType = data[currentCategory]; 
+        displayWords();
+        document.addEventListener('keypress', function(event) {
+            var charTyped = String.fromCharCode(event.which);
+            if (charTyped === '\n' || charTyped === '\r') {
+                startGame();
+            }
         });
+    });
+
 
     function startGame() {
         timer = setInterval(startTimer, 1000);
@@ -42,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function displayWords() {
         if (count > 0 && wordsToType.length > 0) {
             let currentWord = wordsToType[Math.floor(Math.random() * wordsToType.length)];
-            document.getElementById("game").textContent = currentWord;
+            document.getElementById("words").textContent = currentWord;
         }
     }
 

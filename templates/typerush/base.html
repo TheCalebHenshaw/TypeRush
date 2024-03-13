@@ -52,8 +52,11 @@
         </footer>
         
     </div>
-    
-    <script src="{% static 'script/JQuery.js' %}"></script>
+
+    {% block script %}
+        <script src="{% static 'script/JQuery.js' %}"></script>
+    {% endblock %}
+
 </body>
 
 </html>
