@@ -1,6 +1,4 @@
 { 
-    "_comment" : "source is https://preply.com/en/blog/300-most-common-english-words/",
-    "_comment2" : "16 words currently",
     "easy": [
         "is",
         "was",
@@ -62,7 +60,7 @@
         "cable",
         "no",
         "pain",
-        "no",
+        "none",
         "gain",
         "signal",
         "gift",
@@ -102,10 +100,10 @@
         "building",
         "golden",
         "good",
-        "job"
+        "job",
+        "sussy"
       
     ],
-    "_comment3" : "source is /",
     "medium": [
         "aggressive",
         "futuristic",
@@ -178,7 +176,7 @@
         "jupiter",
         "mars",
         "chimney",
-        "jiraffe",
+        "giraffe",
         "crustacean",
         "Madrid",
         "ingnorance",
@@ -186,7 +184,7 @@
         "financially",
         "setback",
         "irresponsible",
-        "genuinly",
+        "genuinely",
         "apartment",
         "dermatologically",
         "International",
@@ -319,7 +317,7 @@
         "Floccinaucinihilipilification",
         "Antidisestablishmentarianism",
         "Spectrophotofluorometrically",
-        "excelent",
+        "excellent",
         "job"
     ]
 
