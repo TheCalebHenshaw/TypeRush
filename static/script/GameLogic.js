@@ -2,10 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let count = 60;
     let timer;
     let totalChars = 0;
-
-    // in case we feel like doing accuracy which we probably wont.
-    let correct = 0;
-    let wrong = 0;
+    let wordsToType = [];
 
     function startTimer() {
         let minutes = Math.floor(count / 60);
@@ -27,7 +24,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     fetch('static/data/words.json')
         .then(response => response.json())
-        .then(wordsToType => {
+        .then(words => {
+            wordsToType = words;
+            displayWords();
             document.addEventListener('keypress', function(event) {
                 var charTyped = String.fromCharCode(event.which);
                 if (charTyped === '\n' || charTyped === '\r') {
@@ -36,27 +35,19 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
-
-    function showTextBox() {
-        document.getElementById("textbox-container").style.display = "block";
-    }
-
     function startGame() {
         timer = setInterval(startTimer, 1000);
     }
 
     function displayWords() {
-        if (count > 0) {
-            // generate a random word or get a word from a list
-            let currentWord;
-            document.getElementById("we dont have a template to work with").textContent = currentWord;
+        if (count > 0 && wordsToType.length > 0) {
+            let currentWord = wordsToType[Math.floor(Math.random() * wordsToType.length)];
+            document.getElementById("game").textContent = currentWord;
         }
     }
 
     function endGame() {
-        // end game logic
         calculateWPM();
-        // send results to database and bring user to endscreen
     }
 
     function countChars(word) {
