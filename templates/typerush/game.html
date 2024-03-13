@@ -1,1 +1,38 @@
-dhdydjyd
+{% extends "base.html" %}
+
+{% block title_block %}
+HippoType
+{% endblock %}
+
+{% block css %}
+<link href="{% static 'stylesheets/styles.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'stylesheets/game.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block header_block %}
+<div id="header">
+    <div id="info"></div>
+    <div id="buttons">
+        <button id="newGameBtn">New game</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block main_block %}
+<main>
+    <h1>
+        <!-- SVG content here as before, omitted for brevity -->
+        Type Rush
+    </h1>
+    <div id="game" tabindex="0">
+        <div id="words"></div>
+        <div id="cursor"></div>
+        <div id="focus-error">Click here to start!</div>
+    </div>
+</main>
+{% endblock %}
+
+
+
+{% block script %}
+{% endblock %}
