@@ -2,6 +2,7 @@ import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'typerush_project.settings')
 import random
 import django
+from django.core.files import File
 django.setup()
 from typerush.models import Player, Mode, Leaderboard, Game
 from django.contrib.auth.models import User
@@ -18,6 +19,21 @@ def populate():
     for i, user in enumerate(users, start=1):
         player = Player.objects.create(user=user, firstname=f'Player{i}', surname=f'User{i}', country='USA', total_races=5, average_speed=50)
         players.append(player)
+
+        profile_photo_path = os.path.join('media','profile_images', f'profile{i}.jpg')
+        if (os.path.exists(profile_photo_path)):
+            # Check if the player already has a profile picture
+            if not player.profile_picture:
+                # Set the profile_picture field to the path of the existing file
+                # .name saves the name not an "instance" of the Image, hence no copies are uploaded to Media dir
+                player.profile_picture.name = f'profile{i}.jpg'
+                player.save(update_fields=['profile_picture'])
+
+
+                # with open(profile_photo_path, 'rb') as f:
+                #     player.profile_picture.save(f'profile{i}.jpg', File(f))
+                #     print(player.profile_picture)
+        
 
     # Populate Leaderboard model
     easyleaderboard = Leaderboard.objects.create(title='Easy Leaderboard')

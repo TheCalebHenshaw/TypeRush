@@ -12,6 +12,12 @@
                     Leaderboard
                 </a>
             </li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'typerush:profile' %}">
+                My Profile
+            </a>
+            </li>
+            {% else %}
             <li><a href="{% url 'typerush:user_login' %}">
                     Log In
                 </a>
@@ -20,10 +26,11 @@
                     Sign Up
                 </a>
             </li>
+            {% endif %}
         </ul>
     </div>
     <div class="footer-title">
-        | Type Racer
+        | TypeRush
     </div>
     <div class="copyright">
         | © 2024, WAD 2B.

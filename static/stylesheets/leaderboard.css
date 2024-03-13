@@ -54,7 +54,8 @@ main {
     width: 17vh;
     border-radius: 50%;
 }
-.data-items img {
+
+td img {
     border-radius: 50%;
     height: 5vh;
     width: 5vh;
@@ -133,7 +134,8 @@ th, td {
 .select-mode {
     margin: 0 5% 2% 0;
     position: relative;
-    button{
+    
+    .selectMode{
         transition: all 0.5s;
         color: inherit;
         border: 1px solid var(--mint);
@@ -142,12 +144,19 @@ th, td {
     }
 }
 
-.select-mode button:hover {
+.selectMode:hover {
     transition: all 0.5s;
     
     background-color: var(--purple);
     border:1px solid var(--purple);
     color:var(--darkest);
+}
+
+.selectMode.selected {    
+    background-color: var(--purple);
+    border:1px solid var(--purple);
+    color:var(--darkest);
+
 }
 
 .select-mode{
