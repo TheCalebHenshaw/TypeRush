@@ -10,6 +10,17 @@ HippoType
 <link href="{% static 'stylesheets/game.css' %}" rel="stylesheet" type="text/css" />
 {% endblock %}
 
+{% block header_block %}
+<div id="header">
+    <div id="info">
+
+    </div>
+    <div id="buttons">
+        <button id="newGameBtn">New game</button>
+    </div>
+</div>
+{% endblock %}
+
 {% block main_block %}
 <main>
     <div>time: <span id="timer">1:00</span></div>
