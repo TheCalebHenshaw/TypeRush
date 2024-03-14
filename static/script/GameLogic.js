@@ -1,12 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
-    let count = 59;
-    let timer = null;
+    let count = 60;
+    let timer;
     let totalChars = 0;
     let wordsToType = [];
     let currentCategory = 'easy'; 
     let currentWordIndex = 0;
     let gameStarted = false;
-    let timerStarted = false;
 
     function startTimer() {
         let minutes = Math.floor(count / 60);
@@ -45,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function startGame() {
         timer = setInterval(startTimer, 1000);
+        gameStarted = true;
     }
 
     function displayWords() {
