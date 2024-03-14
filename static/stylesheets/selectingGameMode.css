@@ -1,0 +1,9 @@
+@import url('/static/stylesheets/base.css');
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5% 10% 5% 10%;
+    flex-direction: column;
+}

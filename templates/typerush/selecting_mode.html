@@ -1,0 +1,37 @@
+{% extends 'typerush/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    TypeRush - Mode
+{% endblock %}
+
+{% block css %}
+    <!-- filename in cap letter and works? -->
+    <link href="{% static 'stylesheets/selectingGameMode.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block main_block %}
+
+    <div class="main-panel">
+        <div class="select-mode">
+            <button type="button" class="selectMode selected" data-mode=1>
+                Easy
+            </button>
+            <button type="button" class="selectMode" data-mode=2>
+                Medium
+            </button>
+            <button type="button" class="selectMode" data-mode=3>
+                Hard
+            </button>
+        </div>
+
+        <div class="submit-mode">
+            <button type="submit">
+                Start Game
+            </button>
+        </div>
+
+    </div>
+
+<script src="{% static 'script/SelectingGameMode.js' %}"></script>
+{% endblock %}

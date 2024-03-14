@@ -11,6 +11,10 @@
 {% endblock %}
 
 {% block main_block %}
+{% if registered %}
+    <h2> Thank you for registering!</h2>
+    <a href="{% url 'typerush:home' %}">Return to homepage</a>
+{% else }
 <div class="register-box">
     
     <h2>Register</h2>
