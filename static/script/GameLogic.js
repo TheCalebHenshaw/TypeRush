@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentCategory = 'easy'; 
     let currentWordIndex = 0;
     let gameStarted = false;
+    var correct = 0;
+    var wrong = 0;
 
     function startTimer() {
         let minutes = Math.floor(count / 60);
@@ -49,20 +51,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function displayWords() {
         
+        let currentWord = wordsToType[currentWordIndex];
         if (count > 0 && wordsToType.length > 0) {
-            let currentWord = wordsToType[currentWordIndex];
             document.getElementById("words").textContent = currentWord;
         }
+        let spelling = checkSpelling(userWord, currentWord);
+        
+        if (spelling){
+            $("words").css("color", "red");
+        }
+
     }
 
 
     function advanceWord(){
+        
         currentWordIndex +=1;
         displayWords();
     }
 
     
     function endGame() {
+        
         calculateWPM();
         gameStarted = false;
     }
@@ -73,5 +83,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function calculateWPM() {
         return (totalChars / 5);
+    }
+
+    function checkSpelling(answer, word) {
+        if (answer === word) {
+            correct++;
+            return true;
+            countChars(word);
+        } else {
+            wrong++;
+            return false
+        }
     }
 });

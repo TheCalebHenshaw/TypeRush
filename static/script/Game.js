@@ -17,7 +17,6 @@ function checkSpelling(answer, randomWord) {
         countChars(randomWord);
     } else {
         wrong++;
-        //console.log(wrong);
     }
 }
 
