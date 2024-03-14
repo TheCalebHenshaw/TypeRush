@@ -15,7 +15,9 @@ Populate the database (now added but not finished)
 make sure all urls are relative
 cookies?
 
-Unit Testing?
+Unit Testing:
+- Check all the urls work
+- Check that the views work as well
 
 needed but havent implemented:
 - unit testing
