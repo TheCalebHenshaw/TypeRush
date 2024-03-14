@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    let count = 60;
+    let count = 59;
     let timer;
     let totalChars = 0;
     let wordsToType = [];
@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
         wordsToType = data[currentCategory]; 
         displayWords();
+        document.getElementById("timer").innerText = '1' + ":" + '00';
         document.addEventListener('keydown', function(event) {
             if (!gameStarted) {
                 startGame();
@@ -49,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     event.preventDefault();
                     var userInputField = document.getElementById('user-input');
                     userInputField.value = '';
-                    numType = 0;
+                    //numType = 0;
                     document.getElementById("words").style.color = ""
                     advanceWord();
                 }
