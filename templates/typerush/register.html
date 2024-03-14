@@ -14,11 +14,12 @@
 {% if registered %}
     <h2> Thank you for registering!</h2>
     <a href="{% url 'typerush:home' %}">Return to homepage</a>
-{% else }
+{% else %}
 <div class="register-box">
     
     <h2>Register</h2>
-    <form action="">
+    <div id = "error"></div>
+    <form id="form" action="">
         <div class="upload">
             <img src="{% static 'images/usercircle1.png' %}" width=100 heigt=100 alt="" style="color: #15F5BA;">
             <div class="round">
@@ -27,15 +28,15 @@
             </div>
         </div>
         <div class="user-box">
-            <input type="text" required>
+            <input id="username" type="text" required>
             <label for="">Set Username</label>
         </div>
         <div class="user-box">
-            <input type="text">
+            <input id="firstname" type="text">
             <label for="">Firstname</label>
         </div>
         <div class="user-box">
-            <input type="text">
+            <input id="surname" type="text">
             <label for="">Surname</label>
         </div>
 
@@ -298,5 +299,9 @@
         </a>
     </form>
 </div>
+{% endif %}
 {% endblock %}
 
+{% block script %}
+    <script src="{% static 'script/Validate.js' %}"></script>
+{% endblock %}
