@@ -39,6 +39,9 @@ document.addEventListener("DOMContentLoaded", function() {
         document.addEventListener('keydown', function(event) {
             if (!gameStarted) {
                 startGame();
+                window.onbeforeunload = () => {
+                    return "Are you sure you want to leave?";
+                };
             } else {
                 if (event.key === ' ') {
                     if (checkSpelling(userInput,currentWord)) {
@@ -66,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function startGame() {
         timer = setInterval(startTimer, 1000);
         gameStarted = true;
+        
     }
 
     function displayWords() {
