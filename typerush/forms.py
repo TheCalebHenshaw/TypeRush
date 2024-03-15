@@ -5,23 +5,30 @@ from rango.models import UserProfile
 from typerush.models import Player
 
 class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput())
+    username = forms.CharField(required=True)
+    password = forms.CharField(required=True,widget=forms.PasswordInput())
     
     class Meta:
         model = User
         fields = ('username', 'password',)
 
 class UserProfileForm(forms.ModelForm):
+    firstname = forms.CharField(max_length=100)
+    lastname = forms.CharField(max_length=100)
+    country = forms.Select()
+    profile_picture = forms.ImageField()
     class Meta:
         model = Player
         fields = ('firstname','surname','country','profile_picture',)
 
 class EditUserForm(forms.ModelForm):
-
+    username = forms.CharField(widget=forms.PasswordInput())
+    password = forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model = User
         fields = ('username','password',)
 class EditPlayerProfileForm(forms.ModelForm):
+    profile_picture = forms.ImageField()
     class Meta:
         model = Player
         fields = ('profile_picture')
