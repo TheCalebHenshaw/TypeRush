@@ -19,7 +19,7 @@ class UserProfileForm(forms.ModelForm):
     profile_picture = forms.ImageField(required=False)
     class Meta:
         model = Player
-        fields = ('firstname','surname','country','profile_picture',)
+        fields = ('firstname','lastname','country','profile_picture',)
 
 class EditUserForm(forms.ModelForm):
     username = forms.CharField(widget=forms.PasswordInput())
