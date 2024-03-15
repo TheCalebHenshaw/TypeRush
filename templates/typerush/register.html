@@ -13,14 +13,13 @@
 {% block main_block %}
 {% if registered %}
     <h2> Thank you for registering!</h2>
-    <br />
     <a href="{% url 'typerush:home' %}">Return to homepage</a>
 {% else %}
 <div class="register-box">
     
     <h2>Register</h2>
 
-    <form id="form" method="POST" action="{% url 'typerush:register' %}" enctype="multipart/form-data">
+    <form id="form" action="{% url 'typerush:register' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="upload">
             <img id="profile-picture-preview" src="{% static 'images/usercircle1.png' %}" width=100 heigt=100 alt="Profile Picture Preview" style="color: #15F5BA;" />
@@ -38,7 +37,7 @@
             <label for="">Firstname</label>
         </div>
         <div class="user-box">
-            {{ profile_form.lastname }}
+            {{ profile_form.surname }}
             <label for="">Surname</label>
         </div>
 
@@ -297,11 +296,10 @@
             <label id="error" class="error"></label>
         </div>
         
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <input type="submit" name="submit" value="Register" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span><input type='submit' id="submit"></button>
     </form>
 </div>
 {% endif %}
@@ -328,7 +326,7 @@
         }
 
         // Add event listener to input element for file selection
-        document.getElementById('id_profile_picture').addEventListener('change', handleFileSelect);
+        document.getElementById('profile_picture').addEventListener('change', handleFileSelect);
 
     </script>
 {% endblock %}
