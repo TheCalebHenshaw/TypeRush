@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let timer;
     let totalChars = 0;
     let wordsToType = [];
-    let currentCategory = 'easy'; 
+    let currentCategory = 'hard'; 
     let currentWordIndex = 0;
     let gameStarted = false;
     var correct = 0;
@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     event.preventDefault();
                     var userInputField = document.getElementById('user-input');
                     userInputField.value = '';
-                    //numType = 0;
                     document.getElementById("words").style.color = ""
                     advanceWord();
                 }
