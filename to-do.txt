@@ -18,6 +18,7 @@ cookies?
 Unit Testing:
 - Check all the urls work
 - Check that the views work as well
+- Check the login works
 
 needed but havent implemented:
 - unit testing
