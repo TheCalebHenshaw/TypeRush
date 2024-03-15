@@ -174,3 +174,14 @@ select:-webkit-autofill:focus {
         color: var(--mint);
  }
 }
+
+.error {
+    color: rgb(217, 96, 96); 
+    font-size: 14px; 
+    margin-top: 5px; 
+    visibility: hidden; 
+}
+
+.error.show {
+    visibility: visible; 
+}

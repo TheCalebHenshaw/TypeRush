@@ -11,10 +11,15 @@
 {% endblock %}
 
 {% block main_block %}
+{% if registered %}
+    <h2> Thank you for registering!</h2>
+    <a href="{% url 'typerush:home' %}">Return to homepage</a>
+{% else %}
 <div class="register-box">
     
     <h2>Register</h2>
-    <form action="">
+
+    <form id="form" action="">
         <div class="upload">
             <img src="{% static 'images/usercircle1.png' %}" width=100 heigt=100 alt="" style="color: #15F5BA;">
             <div class="round">
@@ -23,15 +28,15 @@
             </div>
         </div>
         <div class="user-box">
-            <input type="text" required>
+            <input id="username" type="text" required>
             <label for="">Set Username</label>
         </div>
         <div class="user-box">
-            <input type="text">
+            <input id="firstname" type="text">
             <label for="">Firstname</label>
         </div>
         <div class="user-box">
-            <input type="text">
+            <input id="surname" type="text">
             <label for="">Surname</label>
         </div>
 
@@ -282,17 +287,25 @@
         </div>
         
         <div class="user-box">
-            <input type="password" required>
+            <input id="password" type="password" required>
             <label for="">Set Password</label>
+        </div>
+
+        <div class="error">
+            <label id="error" class="error"></label>
         </div>
         
         <a href="">
             <span></span>
             <span></span>
             <span></span>
-            <span></span>Submit
+            <span></span><button type='submit'>Submit</button>
         </a>
     </form>
 </div>
+{% endif %}
 {% endblock %}
 
+{% block script %}
+    <script src="{% static 'script/Validate.js' %}"></script>
+{% endblock %}
