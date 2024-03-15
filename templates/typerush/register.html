@@ -18,8 +18,14 @@
 <div class="register-box">
     
     <h2>Register</h2>
+    <form id="form" method="post" action="{% url 'typerush:register' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        <input type="submit" name="submit" value="Register" />
+    </form>
 
-    <form id="form" action="">
+    <!-- <form id="form" action="">
         <div class="upload">
             <img src="{% static 'images/usercircle1.png' %}" width=100 heigt=100 alt="" style="color: #15F5BA;">
             <div class="round">
@@ -301,7 +307,7 @@
             <span></span>
             <span></span><button type='submit'>Submit</button>
         </a>
-    </form>
+    </form> -->
 </div>
 {% endif %}
 {% endblock %}

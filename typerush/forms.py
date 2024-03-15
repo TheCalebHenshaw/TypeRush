@@ -31,5 +31,5 @@ class EditPlayerProfileForm(forms.ModelForm):
     profile_picture = forms.ImageField()
     class Meta:
         model = Player
-        fields = ('profile_picture')
+        fields = ('profile_picture',)
 
