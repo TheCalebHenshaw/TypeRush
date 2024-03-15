@@ -13,36 +13,32 @@
 {% block main_block %}
 {% if registered %}
     <h2> Thank you for registering!</h2>
+    <br />
     <a href="{% url 'typerush:home' %}">Return to homepage</a>
 {% else %}
 <div class="register-box">
     
     <h2>Register</h2>
-    <form id="form" method="post" action="{% url 'typerush:register' %}" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
-        <input type="submit" name="submit" value="Register" />
-    </form>
 
-    <!-- <form id="form" action="">
+    <form id="form" method="POST" action="{% url 'typerush:register' %}" enctype="multipart/form-data">
+        {% csrf_token %}
         <div class="upload">
-            <img src="{% static 'images/usercircle1.png' %}" width=100 heigt=100 alt="" style="color: #15F5BA;">
+            <img id="profile-picture-preview" src="{% static 'images/usercircle1.png' %}" width=100 heigt=100 alt="Profile Picture Preview" style="color: #15F5BA;" />
             <div class="round">
-                <input type="file">
+                {{ profile_form.profile_picture }}
                 <i class="fa fa-camera" style="color: #000000;"></i>
             </div>
         </div>
         <div class="user-box">
-            <input id="username" type="text" required>
+            {{ user_form.username }}
             <label for="">Set Username</label>
         </div>
         <div class="user-box">
-            <input id="firstname" type="text">
+            {{ profile_form.firstname }}
             <label for="">Firstname</label>
         </div>
         <div class="user-box">
-            <input id="surname" type="text">
+            {{ profile_form.lastname }}
             <label for="">Surname</label>
         </div>
 
@@ -293,7 +289,7 @@
         </div>
         
         <div class="user-box">
-            <input id="password" type="password" required>
+            {{ user_form.password }}
             <label for="">Set Password</label>
         </div>
 
@@ -301,17 +297,38 @@
             <label id="error" class="error"></label>
         </div>
         
-        <a href="">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span><button type='submit'>Submit</button>
-        </a>
-    </form> -->
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <input type="submit" name="submit" value="Register" />
+    </form>
 </div>
 {% endif %}
 {% endblock %}
 
 {% block script %}
     <script src="{% static 'script/Validate.js' %}"></script>
+    <script>
+        // JavaScript code to handle profile picture upload
+        // This is a basic example, you may need to modify it based on your requirements
+
+        // Function to handle file selection
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = function(event) {
+                const imageUrl = event.target.result;
+                // Display the selected image preview
+                document.getElementById('profile-picture-preview').src = imageUrl;
+            }
+            
+            reader.readAsDataURL(file);
+        }
+
+        // Add event listener to input element for file selection
+        document.getElementById('id_profile_picture').addEventListener('change', handleFileSelect);
+
+    </script>
 {% endblock %}

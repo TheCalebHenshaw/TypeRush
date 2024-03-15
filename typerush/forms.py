@@ -16,7 +16,7 @@ class UserProfileForm(forms.ModelForm):
     firstname = forms.CharField(max_length=100)
     lastname = forms.CharField(max_length=100)
     country = forms.Select()
-    profile_picture = forms.ImageField()
+    profile_picture = forms.ImageField(required=False)
     class Meta:
         model = Player
         fields = ('firstname','surname','country','profile_picture',)

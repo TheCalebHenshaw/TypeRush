@@ -84,9 +84,10 @@ def register(request):
             user.save()
             profile = profile_form.save(commit=False)
             profile.user = user
+            profile.country = request.POST.get('country')
 
-            if 'picture' in request.FILES:
-                profile.picture = request.FILES['picture']
+            if 'profile_picture' in request.FILES:
+                profile.profile_picture = request.FILES['profile_picture']
             profile.save()
 
             registered = True
