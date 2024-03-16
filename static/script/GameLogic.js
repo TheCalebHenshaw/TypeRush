@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
         gameStarted = false;
 
         $.ajax({
-            url: '/save_game_results/', 
+            url: '/typerush/save_game_results/', 
             type: 'POST',
             data: {
                 correct: correct,

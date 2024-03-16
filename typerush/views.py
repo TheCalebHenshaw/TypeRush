@@ -150,10 +150,11 @@ def get_json_data(request):
 def selecting_mode(request):
     return render(request,'typerush/selecting_mode.html')
 
+@csrf_exempt
 def save_game_results(request):
     if request.method == 'POST':
-        correct = request.POST.get(correct, 0)
-        wrong = request.POST.get(wrong, 0)
+        correct = request.POST.get('correct', 0)
+        wrong = request.POST.get('wrong', 0)
 
         GameResult.objects.create(correct = correct , wrong = wrong)
 
