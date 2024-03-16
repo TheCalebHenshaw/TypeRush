@@ -106,6 +106,7 @@ def register(request):
 def user_logout(request):
     logout(request)
     return redirect('typerush:home')
+
 #@login_required
 def profile(request):
     #player = request.user.player
@@ -143,3 +144,6 @@ def get_json_data(request):
         return JsonResponse({'error': 'file not found'}, status=404)
     except json.JSONDecodeError:
         return JsonResponse({'error': 'invalid json format'}, status=500)
+    
+def selecting_mode(request):
+    return render(request,'typerush/selecting_mode.html')

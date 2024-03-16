@@ -7,3 +7,56 @@ main {
     padding: 5% 10% 5% 10%;
     flex-direction: column;
 }
+
+.submit-mode {
+    display: none;
+    text-align: center;
+    margin-top: 20px; 
+}
+.submit-mode a {
+    color: white; 
+
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+}
+
+.select-mode {
+    display: flex;
+    justify-content: space-between;
+}
+
+.select-mode .selectMode {
+    color: inherit;
+    border: 1px solid var(--mint);
+    background-color: var(--darkest);
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: calc(33% - 10px);
+    text-align: center;
+    line-height: normal; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.select-mode .selectMode + .selectMode {
+    margin-left: 10px;
+}
+
+.select-mode .selectMode:hover {
+    background-color: var(--purple);
+    border-color: var(--purple);
+    color: var(--darkest);
+}
+
+.select-mode .selected {
+    background-color: var(--purple);
+    border-color: var(--purple);
+    color: var(--darkest);
+}
+
+h3,h4 {
+    text-align: center; 
+}

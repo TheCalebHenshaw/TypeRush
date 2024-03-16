@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title_block %}
-    TypeRush - Mode
+    Mode
 {% endblock %}
 
 {% block css %}
@@ -11,22 +11,22 @@
 {% endblock %}
 
 {% block main_block %}
-
+    <h3>please select a difficulty</h3>
     <div class="main-panel">
         <div class="select-mode">
-            <button type="button" class="selectMode selected" data-mode=1>
+            <button type="button" class="selectMode" data-mode="easy">
                 Easy
             </button>
-            <button type="button" class="selectMode" data-mode=2>
+            <button type="button" class="selectMode" data-mode="medium">
                 Medium
             </button>
-            <button type="button" class="selectMode" data-mode=3>
+            <button type="button" class="selectMode" data-mode="hard">
                 Hard
             </button>
         </div>
-
+        <h4></h4>
         <div class="submit-mode">
-            <button type="submit">
+            <a href="{% url 'typerush:game' %}" button type="submit">
                 Start Game
             </button>
         </div>
