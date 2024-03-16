@@ -14,6 +14,43 @@ main {
     margin: 50px auto;
 }
 
+.select-mode {
+    display: flex;
+    justify-content: space-between;
+}
+
+.select-mode .selectMode {
+    color: white; 
+    border: 1px solid var(--mint);
+    background-color: var(--darkest);
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: calc(33% - 10px);
+    text-align: center;
+    line-height: normal; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.select-mode .selectMode + .selectMode {
+    margin-left: 10px;
+}
+
+
+.select-mode .selectMode:hover {
+    background-color: var(--purple);
+    border-color: var(--purple);
+    color: var(--darkest);
+}
+
+.select-mode .selectMode.selected {
+    background-color: var(--purple);
+    border-color: var(--purple);
+    color: var(--darkest);
+}
+
 h1 {
     color: var(--mint);
 }
@@ -171,3 +208,4 @@ div.word {
     background-color: var(--purple); 
     animation: blink 0.3s infinite; 
 }
+

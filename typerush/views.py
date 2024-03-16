@@ -132,18 +132,20 @@ def game_view(request):
     return render(request, 'typerush/game.html')
 
 
-# loads words from json file into game
+@csrf_exempt
 def get_json_data(request):
-    json_file_path = 'static/data/words.json'
+    mode = request.POST.get('mode')
+    json_file_path = f'static/data/{mode}.json'
 
     try:
         with open(json_file_path, 'r') as file:
             json_data = json.load(file)
         return JsonResponse(json_data)
     except FileNotFoundError:
-        return JsonResponse({'error': 'file not found'}, status=404)
+        return JsonResponse({'error': 'File not found'}, status=404)
     except json.JSONDecodeError:
-        return JsonResponse({'error': 'invalid json format'}, status=500)
+        return JsonResponse({'error': 'Invalid JSON format'}, status=500)
+
     
 def selecting_mode(request):
     return render(request,'typerush/selecting_mode.html')

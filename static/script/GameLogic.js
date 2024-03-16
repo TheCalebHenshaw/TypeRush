@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded", function() {
     let timer;
     let totalChars = 0;
     let wordsToType = [];
-    let currentCategory = 'hard'; 
+    let currentCategory = 'easy'; 
     let currentWordIndex = 0;
     let gameStarted = false;
-    var correct = 0;
-    var wrong = 0;
-    var userInput = '';
+    let correct = 0;
+    let wrong = 0;
+    let userInput = '';
     let currentWord;
     let spelling;
 
@@ -30,81 +30,96 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    fetch('/get-json-data/')
-    .then(response => response.json())
-    .then(data => {
-        wordsToType = data[currentCategory]; 
-        displayWords();
-        document.getElementById("timer").innerText = '1' + ":" + '00';
-        document.addEventListener('keydown', function(event) {
-            if (!gameStarted) {
-                startGame();
-                window.onbeforeunload = () => {
-                    return "Are you sure you want to leave?";
-                };
-            } else {
-                if (event.key === ' ') {
-                    if (checkSpelling(userInput,currentWord)) {
-                        correct++;
-                        countChars(currentWord);
+    $(".selectMode").click(function(){
+        if (gameStarted) {
+            alert("you cannot change difficulty mid-game, sorry :)");
+            return;
+        }
+
+        $(".selectMode").removeClass('selected');
+        $(this).addClass('selected');
+        let mode = $(this).data("mode");
+        currentCategory = mode;
+        getData('/get-json-data/');
+    })
+
+    function getData(url) {
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: {
+                'mode': currentCategory
+            },
+            success: function(data) {
+                wordsToType = data[currentCategory];
+                displayWords();
+                document.getElementById("timer").innerText = '1' + ":" + '00';
+    
+                // Event listener for keyboard input
+                document.addEventListener('keydown', function(event) {
+                    if (!gameStarted) {
+                        startGame();
+                        window.onbeforeunload = () => {
+                            return "Are you sure you want to leave?";
+                        };
                     } else {
-                        wrong++;
+                        if (event.key === ' ') {
+                            if (checkSpelling(userInput, currentWord)) {
+                                correct++;
+                                countChars(currentWord);
+                            } else {
+                                wrong++;
+                            }
+                            event.preventDefault();
+                            var userInputField = document.getElementById('user-input');
+                            userInputField.value = '';
+                            document.getElementById("words").style.color = ""
+                            advanceWord();
+                        }
                     }
-                    event.preventDefault();
-                    var userInputField = document.getElementById('user-input');
-                    userInputField.value = '';
-                    document.getElementById("words").style.color = ""
-                    advanceWord();
-                }
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching JSON data:', error);
             }
         });
-    });
+    }
+
+    getData('/get-json-data/');
 
     document.getElementById('user-input').addEventListener('input', function() {
-        
         modifyWord();
     });
-
 
     function startGame() {
         timer = setInterval(startTimer, 1000);
         gameStarted = true;
-        
     }
 
     function displayWords() {
-        
         currentWord = wordsToType[currentWordIndex];
         if (count > 0 && wordsToType.length > 0) {
             document.getElementById("words").textContent = currentWord;
         }
-        
     }
 
     function modifyWord() {
         userInput = document.getElementById('user-input').value;
         spelling = checkSpelling(userInput, currentWord.substring(0, userInput.length));
-        
         if (!spelling) {
             document.getElementById("words").style.color = "red";
         } else {
             document.getElementById("words").style.color = ""; 
         }
-
     }
 
-
     function advanceWord(){
-        
         currentWordIndex +=1;
         displayWords();
     }
 
-    
     function endGame() {
         document.getElementById("timer").innerText = calculateWPM();
-
-        // will display this properly latr when we figure out where to put results
         gameStarted = false;
     }
 
@@ -116,13 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return (totalChars / 5);
     }
 
-    function checkSpelling(input,word) {
-        
-        if (input === word) {
-            return true;
-            
-        } else {
-            return false;
-        }
+    function checkSpelling(input, word) {
+        return input === word;
     }
 });
