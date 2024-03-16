@@ -12,8 +12,8 @@ TypeRush
 
 {% block main_block %}
 <main>
-    <div>time: <span id="timer"></span></div>
-    <h1>
+    <div id="time">time: <span id="timer"></span></div>
+    <h1 id="title">
         <!-- SVG content here as before, omitted for brevity -->
         Type Rush
     </h1>
@@ -39,9 +39,20 @@ TypeRush
             Hard
         </button>
     </div>
+
+    <div class="score">
+        <div id="score-box">
+            <label id="score">Score</label>
+        </div>
+        <div id="wpm-box">
+            <label id="wpm"></label>
+        </div>
+        <div id="accu-box">
+            <label id="accuracy"></label>
+        </div>
+    </div>
+
 {% endblock %}
-
-
 
 {% block script %}
     <script src="{% static 'script/GameLogic.js' %}"></script>

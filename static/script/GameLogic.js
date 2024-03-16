@@ -119,8 +119,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function endGame() {
-        document.getElementById("timer").innerText = calculateWPM();
         gameStarted = false;
+        hideStuff();
+        displayResults();
 
         $.ajax({
             url: '/typerush/save_game_results/', 
@@ -137,6 +138,10 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+    
+    function calculateAccuracy() {
+        return (correct / (correct + wrong)) * 100;
+    }
 
     function countChars(word) {
         totalChars += word.length;
@@ -149,4 +154,22 @@ document.addEventListener("DOMContentLoaded", function() {
     function checkSpelling(input, word) {
         return input === word;
     }
+
+    function hideStuff() {
+        document.getElementById("time").style.display = "none";
+        document.getElementById("title").style.display = "none";
+        document.getElementById("game").style.display = "none";
+        var elements = document.getElementsByClassName("select-mode");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.display = "none";
+            }
+    }
+
+    function displayResults() {
+        const scoreElement = document.querySelector('.score');
+        scoreElement.style.display = 'block';
+        document.getElementById("wpm").innerText = calculateWPM() + " wpm";
+        document.getElementById("accuracy").innerText = calculateAccuracy() + "%";
+    }
+
 });
