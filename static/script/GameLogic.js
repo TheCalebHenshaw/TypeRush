@@ -121,6 +121,21 @@ document.addEventListener("DOMContentLoaded", function() {
     function endGame() {
         document.getElementById("timer").innerText = calculateWPM();
         gameStarted = false;
+
+        $.ajax({
+            url: '/save_game_results/', 
+            type: 'POST',
+            data: {
+                correct: correct,
+                wrong: wrong
+            },
+            success: function(response) {
+                console.log('Results saved successfully', response);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error saving results:', error);
+            }
+        });
     }
 
     function countChars(word) {

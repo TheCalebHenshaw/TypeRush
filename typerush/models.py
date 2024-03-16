@@ -52,6 +52,13 @@ class Game(models.Model):
   
     def __str__(self):
         return f"{self.user}: {self.mode.difficulty} score: {self.score}"
+    
+
+class GameResult(models.Model):
+    correct = models.IntegerField(default = 0)
+    wrong = models.IntegerField(default = 0)
+    time = models.DateTimeField(auto_now_add = True)
+
 
 
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate,login, logout
 from django.contrib.auth.decorators import login_required
-from .models import Mode, Game, Player
+from .models import Mode, Game, Player, GameResult
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.http import HttpResponse, JsonResponse
@@ -149,3 +149,14 @@ def get_json_data(request):
     
 def selecting_mode(request):
     return render(request,'typerush/selecting_mode.html')
+
+def save_game_results(request):
+    if request.method == 'POST':
+        correct = request.POST.get(correct, 0)
+        wrong = request.POST.get(wrong, 0)
+
+        GameResult.objects.create(correct = correct , wrong = wrong)
+
+        return JsonResponse({'status' : 'success'})
+    
+    return JsonResponse({'status': 'error', 'message': 'Only POST method is allowed'}, status=405)
