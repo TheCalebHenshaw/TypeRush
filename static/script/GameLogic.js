@@ -138,6 +138,10 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+    
+    function calculateAccuracy() {
+        return (correct / (correct + wrong)) * 100;
+    }
 
     function countChars(word) {
         totalChars += word.length;
