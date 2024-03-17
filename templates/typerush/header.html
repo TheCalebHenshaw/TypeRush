@@ -48,9 +48,14 @@
                 </button>
             </a>
             </li>
+            {% block script %}
+            <script src="{% static 'script/JQuery.js' %}"></script>
+            {% endblock %}
             {% endif %}
         </ul>
         
     </nav>
+
+
 </div>
 
