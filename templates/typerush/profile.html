@@ -14,7 +14,12 @@
         <div class="profile-header"><!-- profile header section -->
             <div class="main-profile">
                 <div class="profile-image">
-                    <img src="{{ MEDIA_URL }}profile_images/profile11.jpeg" alt="profile-img"/>
+                    {% if player.profile_picture %}
+                        <img src="{{ MEDIA_URL }}profile_images/{{ player.profile_picture }}" alt="profile-img"/>
+                    {% else %}
+                        <!-- Show default profile picture -->
+                        <img src="{% static 'images/usercircle2.png' %}" alt="default-profile-img"/>
+                    {% endif %}
 
                 </div>
                 <div class="profile-names">
@@ -44,7 +49,7 @@
                 </div>
                 <div class="other-data">
                     <section class="data-item">
-                        <h3 class="value">70WPM</h3>
+                        <h3 class="value">70wmp</h3>
                         <small class="title">Easy Highscore</small>
                     </section>
                     <section class="data-item">
@@ -76,8 +81,15 @@
                     {% endfor %}
     
                 </tbody>
-            </table>
-            
+            </table> 
+        </div>
+        <div class="controls">
+            <div id="edit-profile">
+                <a href="{% url 'typerush:edit_profile' %}" button type = "button">Edit Profile</a></button>
+            </div>
+            <div id="logout">
+                <a href="{% url 'typerush:user_logout' %}" button type = "button">Log Out</a></button>
+            </div>
         </div>
     </div>
 {% endblock %}

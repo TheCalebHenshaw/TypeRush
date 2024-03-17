@@ -1,0 +1,189 @@
+main {
+    flex-grow: 1; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    padding: 1rem; 
+}
+
+.register-box {
+    max-width: 400px;
+    min-width: 300px;
+    width: 100%;
+    padding: 40px;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    color: var(--lightest);
+    box-shadow: 0 15px 25px var(--mint);
+}
+
+.register-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: var(--white);
+    text-align: center;
+}
+
+.user-box {
+    position: relative;
+}
+
+.user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: var(--white);
+    margin-bottom: 30px;
+    outline: none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--light-grey);
+}
+
+.user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: var(--medium);
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: var(--mint);
+    font-size: 12px;
+}
+
+.register-box form input#submit {
+    background-color: var(--darker);
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: var(--mint);
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+    border: 1px solid var(--mint);
+    border-radius: 5px;
+}
+
+.register-box form input#submit:hover {
+    background: var(--purple);
+    border-color: var(--purple);
+    color: var(--white);
+    box-shadow: 0 0 5px var(--purple), 0 0 25px var(--purple), 0 0 50px var(--purple), 0 0 100px var(--purple);
+}
+
+
+@media (max-width: 768px) {
+    .register-box {
+        width: 90%; 
+        padding: 20px; 
+    }
+   
+}
+
+.upload{
+    width: 100px;
+    position: relative;
+    margin:auto;
+    padding-bottom: 30px;
+}
+
+.upload img{
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid var(--darker);
+}
+
+.upload .round{
+    position: absolute;
+    bottom: 25px;
+    right: 0px;
+    background: var(--mint);
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    
+}
+
+.upload .round input[type='file']{
+    position: absolute;
+    transform: scale(2);
+    opacity: 0;
+}
+
+input[type=file]::-webkit-file-upload-button{
+    cursor: pointer;
+}
+
+.upload .round:hover{
+    background: var(--purple);
+    box-shadow: 0 0 5px var(--purple), 0 0 25px var(--purple), 0 0 50px var(--purple), 0 0 100px var(--purple);
+}
+
+.upload .round:hover i.fa-camera {
+    color: #fff !important; 
+}
+
+/* slightly better than before */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+
+    -webkit-text-fill-color: var(--white);
+    -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+    background-color: var(--bg);
+}
+
+.form-control{
+    margin-bottom: 7%;
+}
+
+#dropbox{
+    position: relative;
+
+    label {
+        top: 0;
+        left: 0;
+        padding: 10px 0;
+        font-size: 12px;
+        color: var(--mint);
+ }
+}
+
+.error {
+    color: rgb(217, 96, 96); 
+    font-size: 14px; 
+    margin-top: 5px; 
+    visibility: hidden; 
+}
+
+.error.show {
+    visibility: visible; 
+}

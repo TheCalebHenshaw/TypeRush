@@ -30,7 +30,12 @@ def get_games(mode):
 def leaderboard(request):
     mode = 1 # default
     top_games = get_games(mode)
-    user_instance = Player.objects.get(user=request.user)
+    
+    try:
+        user_instance = Player.objects.get(user=request.user)
+    except:
+        user_instance = None
+    
     return render(request, 'typerush/leaderboard.html', {'top_games': top_games, 'mode':mode, 'user_instance': user_instance})
 
 @csrf_exempt
@@ -124,7 +129,7 @@ def edit_profile(request):
     else:
         form = UserForm(instance=player)
 
-    return render(request, 'typerush/editprofile.html', {'form' : form})
+    return render(request, 'typerush/edit_profile.html', {'form' : form})
 
 
 #@login_required
