@@ -1,0 +1,17 @@
+@import url('/static/stylesheets/base.css');
+
+.message {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.message h1 {
+    font-size: 36px;
+    color: #e5e2e2;
+}
+
+.message p {
+    font-size: 17px;
+    color: #e5e2e2;
+}

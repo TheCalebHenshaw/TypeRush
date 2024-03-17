@@ -88,8 +88,12 @@
                 <a href="{% url 'typerush:edit_profile' %}" button type = "button">Edit Profile</a></button>
             </div>
             <div id="logout">
-                <a href="{% url 'typerush:user_logout' %}" button type = "button">Log Out</a></button>
+                <a href="{% url 'typerush:user_logout' %}" button type = "button" id='logoutButton'>Log Out</a></button>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'script/JQuery.js' %}"></script>
 {% endblock %}

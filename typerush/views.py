@@ -167,3 +167,6 @@ def save_game_results(request):
         return JsonResponse({'status' : 'success'})
     
     return JsonResponse({'status': 'error', 'message': 'Only POST method is allowed'}, status=405)
+
+def page_not_found_view(request):
+    return render(request, 'typerush/404.html', {})

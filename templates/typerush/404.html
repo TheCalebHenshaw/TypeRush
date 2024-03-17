@@ -1,0 +1,21 @@
+{% extends 'typerush/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    Page Not Found
+{% endblock %}
+
+{% block css %}
+    <link href="{% static 'stylesheets/404.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block main_block %}
+    <div class ="message">
+        <h1>Whoops!</h1>
+        <p>The page you are trying to access does not exist 😞 <br />
+            Must've typed in the URL a bit too fast.</p>
+    </div>
+        
+
+
+{% endblock %}
