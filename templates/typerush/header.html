@@ -29,7 +29,12 @@
                 </button>
             </a>
             </li>
-
+            <li><a href="{% url 'typerush:user_logout' %}">
+                <button type="button" id="logoutButton">
+                    Log Out
+                </button>
+            </a>
+            </li>
             {% else %}
             <li><a href="{% url 'typerush:user_login' %}">
                 <button type="button" id="loginButton">
@@ -40,12 +45,6 @@
             <li><a href="{% url 'typerush:register' %}">
                 <button type="button" id="register">
                     Sign Up
-                </button>
-            </a>
-            </li>
-            <li><a href="{% url 'typerush:profile' %}">
-                <button type="button" id="profileButton">
-                    My Profile
                 </button>
             </a>
             </li>

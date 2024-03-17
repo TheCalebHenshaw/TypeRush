@@ -70,7 +70,10 @@ html {
     --color: var(--lightest);
     --surface: var(--darker);
 }
-
+a {
+    text-decoration: none;
+    color: inherit;
+}
 /* Container for entire window - flexbox*/
 
 .container {

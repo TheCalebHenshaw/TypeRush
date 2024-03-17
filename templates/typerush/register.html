@@ -12,8 +12,8 @@
 
 {% block main_block %}
 {% if registered %}
-    <h2> Thank you for registering!</h2>
-    <a href="{% url 'typerush:home' %}">Return to homepage</a>
+    <h2 id="registered-msg"> Thank you for registering!</h2>
+    <a href="{% url 'typerush:home' %}" id="link-to-home">Return to homepage</a>
 {% else %}
 <div class="register-box">
     
@@ -22,7 +22,7 @@
     <form id="form" action="{% url 'typerush:register' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="upload">
-            <img id="profile-picture-preview" src="{% static 'images/usercircle1.png' %}" width=100 heigt=100 alt="Profile Picture Preview" style="color: #15F5BA;" />
+            <img id="profile-picture-preview" src="{% static 'images/usercircle2.png' %}"  alt="Profile Picture Preview" style="color: #15F5BA;" />
             <div class="round">
                 {{ profile_form.profile_picture }}
                 <i class="fa fa-camera" style="color: #000000;"></i>
