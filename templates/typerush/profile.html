@@ -15,7 +15,7 @@
             <div class="main-profile">
                 <div class="profile-image">
                     {% if player.profile_picture %}
-                        <img src="{{ MEDIA_URL }}profile_images/{{ player.profile_picture }}" alt="profile-img"/>
+                        <img src="{{ MEDIA_URL }}{{ player.profile_picture }}" alt="profile-img"/>
                     {% else %}
                         <!-- Show default profile picture -->
                         <img src="{% static 'images/usercircle2.png' %}" alt="default-profile-img"/>

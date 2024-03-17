@@ -29,7 +29,12 @@
                     My Profile
                 </div>
                 <div class="profile-pic">
-                    <img src="{{ MEDIA_URL }}profile_images/{{ user_instance.profile_picture }}" alt="profile-img"/>
+                    {% if user_instance.profile_picture %}
+                        <img src="{{ MEDIA_URL }}{{ user_instance.profile_picture }}" alt="profile-img"/>
+                    {% else %}
+                        <!-- Show default profile picture -->
+                        <img src="{% static 'images/usercircle2.png' %}" alt="default-profile-img"/>
+                    {% endif %}
                 </div>
                 <div class="profile-title">
                     <h2 id="username">{{ user_instance.user.username }}</h2>
