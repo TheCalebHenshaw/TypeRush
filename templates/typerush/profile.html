@@ -18,43 +18,42 @@
 
                 </div>
                 <div class="profile-names">
-                    <h1 class="username">Username {{ user.user.username }}</h1>
-                    <h2 class="fullname">Firstname Lastname {{ user.firstname }} {{ user.surname }}</h2>
+                    <h1 class="username">{{ player.user.username }}</h1>
+                    <h2 class="fullname">{{ player.firstname }} {{ player.surname }}</h2>
                 </div>
             </div>
         </div>
 
         <div class="profile-body"><!-- profile body section -->
             <div class="profile-actions">
-                <button class="rank">Rank {{ user.rank}}</button>
-                <button class="country">Country {{user.country}}</button>
+                <button class="rank">Rank: {{ player.rank }}</button>
+                <button class="country">Country: {{ player.country }}</button>
                 
             </div>
 
             <div class="data">
                 <div class="important-data">
                     <section class="data-item">
-                        <h3 class="value">104</h3>
+                        <h3 class="value">{{player.total_races}}</h3>
                         <small class="title">Races</small>
                     </section>
                     <section class="data-item">
-                        <h3 class="value">100WPM</h3>
+                        <h3 class="value">{{player.average_speed}}</h3>
                         <small class="title">Average Speed</small>
-                    </section>
-                    </section>
-                    <section class="data-item">
-                        <h3 class="value">70WPM</h3>
-                        <small class="title">Highscore</small>
                     </section>
                 </div>
                 <div class="other-data">
                     <section class="data-item">
-                        <h3 class="value">28WPM</h3>
-                        <small class="title">Last Race</small>
+                        <h3 class="value">70WPM</h3>
+                        <small class="title">Easy Highscore</small>
                     </section>
                     <section class="data-item">
-                        <h3 class="value">Today</h3>
-                        <small class="title">Last Active</small>
+                        <h3 class="value">70WPM</h3>
+                        <small class="title">Medium Highscore</small>
+                    </section>
+                    <section class="data-item">
+                        <h3 class="value">70WPM</h3>
+                        <small class="title">Hard Highscore</small>
                     </section>
                 </div>
             </div>

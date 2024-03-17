@@ -13,17 +13,17 @@
 <div class="login-box">
     
     <h2>Login</h2>
-    <form action="" method="post"> <!-- Added method="post" for form submission -->
-        {% csrf_token %} <!-- Include CSRF token -->
+    <form action="{% url 'typerush:user_login' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <div class="user-box">
-            <input type="text" name="username" onfocus="this.value=''" required> <!-- Added name="username" -->
+            <input type="text" name="username" onfocus="this.value=''" required>
             <label for="">Username</label>
         </div>
         <div class="user-box">
-            <input type="password" name="password" onfocus="this.value=''" required> <!-- Added name="password" -->
+            <input type="password" name="password" onfocus="this.value=''" required>
             <label for="">Password</label>
         </div>
-        <button type="submit" class="login-button">Submit</button> <!-- Changed anchor tag to button for form submission -->
+        <button type="submit" class="login-button">Submit</button>
     </form>
 </div>
 {% endblock %}

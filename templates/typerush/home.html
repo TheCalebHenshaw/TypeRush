@@ -11,7 +11,11 @@
 
 {% block main_block %}
     <img src="{% static 'images/homeImg.jpg' %}" alt="racing-cars" />
-    <h1>WELCOME</h1>
+    {% if user_instance.is_authenticated %}
+        <h1>WELCOME BACK, {{ user_instance.username }}!</h1>
+    {% else %}
+        <h1>WELCOME!</h1>
+    {% endif %}
     <div class ="instructions">
         Welcome aboard TypeRush! Get ready to put your typing skills to the test in a race against time! 
         You've got just one minute to type out as many words as you can. 

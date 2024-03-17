@@ -108,7 +108,7 @@ main {
         }
             .important-data {
                 display: flex;
-                justify-content: space-between;
+                justify-content: space-around;
                 align-items: center;
             }
             .other-data {

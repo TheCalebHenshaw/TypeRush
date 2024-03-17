@@ -14,7 +14,8 @@ import json
 
 # Create your views here.
 def home(request):
-    return render(request, 'typerush/home.html', {})
+    user_instance = request.user
+    return render(request, 'typerush/home.html', {'user_instance': user_instance})
 
 def get_games(mode):
 
@@ -29,7 +30,7 @@ def get_games(mode):
 def leaderboard(request):
     mode = 1 # default
     top_games = get_games(mode)
-    user_instance = request.user
+    user_instance = Player.objects.get(user=request.user)
     return render(request, 'typerush/leaderboard.html', {'top_games': top_games, 'mode':mode, 'user_instance': user_instance})
 
 @csrf_exempt
@@ -107,10 +108,10 @@ def user_logout(request):
     logout(request)
     return redirect('typerush:home')
 
-#@login_required
+@login_required
 def profile(request):
-    #player = request.user.player
-    return render(request, 'typerush/profile.html') #, {'player' : player})
+    player = Player.objects.get(user=request.user)
+    return render(request, 'typerush/profile.html', {'player' : player})
 
 @login_required
 def edit_profile(request):
