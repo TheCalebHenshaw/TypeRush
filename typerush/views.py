@@ -72,8 +72,8 @@ def user_login(request):
             else:
                 return HttpResponse("Your TypeRush account is disabled.")
         else:
-            print(f"Invalid login details: {username}, {password}")
-            return HttpResponse("Invalid login details supplied.")
+            error = "Invalid login details supplied."
+            return render(request, 'typerush/login.html', {'error_message': error})
     else:
         return render(request, 'typerush/login.html')
 
@@ -132,7 +132,7 @@ def edit_profile(request):
     return render(request, 'typerush/edit_profile.html', {'form' : form})
 
 
-#@login_required
+@login_required(login_url='/typerush/login/')
 # will add the correct context dictionary when i have better idea of how game is implemented
 def game_view(request):
     return render(request, 'typerush/game.html')
