@@ -26,6 +26,6 @@ urlpatterns = [
     path('typerush/', include('typerush.urls')),
     path('admin/', admin.site.urls),
     path('get-json-data/', views.get_json_data, name='get_json_data'),
-    re_path(r'^.*$', views.page_not_found_view),
+    re_path(r'^(?!media/).*$', views.page_not_found_view),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

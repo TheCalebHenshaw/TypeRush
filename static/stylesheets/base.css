@@ -2,15 +2,6 @@
     font-family: 'CyberwayRiders';
     src: local('CyberwayRiders'),
          url('/static/fonts/CyberwayRiders.ttf') format("truetype");
-
-    /* font-family: 'FutureLight';
-    src: local('FutureLight'),
-        url('/static/fonts/FutureLight.ttf') format("truetype"); */
-    
-    /* font-family: 'StarTrebek';
-    src: local('StarTrebek'),
-        url('/static/fonts/StarTrebek.ttf') format("truetype"); */
-  
     }
 @font-face {
     font-family: 'KillerTech';
@@ -19,19 +10,38 @@
 }
 
 @font-face {
-    font-family: 'FutureLight';
-    src: local('FutureLight'),
-        url('/static/fonts/FutureLight.ttf') format("truetype");
+    font-family: 'Alegreya';
+    src: local('AlegreyaSC'),
+        url('/static/fonts/AlegreyaSC.ttf') format("truetype");
 }
 @font-face {
-    font-family: 'Megabeat';
-    src: local('Megabeat'),
-        url('/static/fonts/Megabeat.ttf') format("truetype");
+    font-family: 'Andika';
+    src: local('Andika'),
+        url('/static/fonts/Andika.ttf') format("truetype");
+}
+@font-face {
+    font-family: 'Bungee';
+    src: local('Bungee'),
+        url('/static/fonts/Bungee.ttf') format("truetype");
     
+    }
+@font-face {
+    font-family: 'Monofett';
+    src: local('Monofett'),
+        url('/static/fonts/Monofett.ttf') format("truetype");
+    color: var(--mint);
 }
 
+@font-face {
+    font-family: 'VastShadow';
+    src: local('VastShadow'),
+        url('/static/fonts/VastShadow.ttf') format("truetype");
+    color: var(--mint);
+}
+
+
 * {
-    font-family: 'FutureLight'; 
+    
 }
 
 header * {
@@ -69,6 +79,10 @@ html {
     --bg: var(--black);
     --color: var(--lightest);
     --surface: var(--darker);
+
+    --header-font: 'Alegreya';
+    --subtitle-font: 'Alegreya';
+    --body-font: 'Andika';
 }
 a {
     text-decoration: none;
@@ -81,6 +95,7 @@ a {
     justify-content: space-between;
     min-height: 100vh;
     flex-direction: column;
+    font-family: var(--body-font);
 }
 
 /* Header flexbox within container */
@@ -90,6 +105,11 @@ header {
     align-items: center;
     border-bottom: 1px solid var(--mint);
     margin: auto 15% auto 15%;
+
+    button {
+        font-family: var(--subtitle-font);
+    }
+    
 }
 .main-icon {
     max-width: 100%;
@@ -98,6 +118,7 @@ header {
 .header-title {
     text-align: center;
     font-size: x-large;
+    font-family: var(--header-font);
 }
 nav {
     text-align: center;
@@ -202,7 +223,6 @@ body{
     top: 0;
     left: 5%;
     background: #000;
-    /*background: rgba(255, 255, 255, 0.1);*/
     overflow: hidden;
 
     &::after{
@@ -214,7 +234,7 @@ body{
         top: -50%;
         left: 0;
         background: linear-gradient(to bottom, var(--mint) 0%, var(--mint) 75%, var(--white) 100%);
-        animation: drop 7s 0s infinite;
+        animation: drop 6s 0s infinite;
         animation-fill-mode: forwards;
         animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
     }
@@ -252,11 +272,6 @@ body{
             animation-delay: 1s
         }
     }   
-    
-    
-    
-    
-        
 }
   
 @keyframes drop{

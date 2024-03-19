@@ -23,7 +23,7 @@ main {
 
 .rank-box {
     display: flex;
-    background-image: linear-gradient(var(--dark), var(--white));
+    background-image: linear-gradient(var(--white), var(--dark));
     color: black;
     padding: 0 15px 0 15px;
     min-height: 10vh;
