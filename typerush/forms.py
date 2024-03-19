@@ -65,11 +65,23 @@ class EditProfileForm(forms.ModelForm):
 
 
 class EditUserForm(forms.ModelForm):
-    password = forms.CharField(required=True)
+    def __init__(self, *args, **kwargs):
+        super(UserForm, self).__init__(*args, **kwargs)
+        # Dictionary mapping field names to custom IDs
+        custom_ids = {
+            'username': 'username',
+            'password': 'password',
+        }
+        # Assign custom IDs to form fields
+        for field_name, custom_id in custom_ids.items():
+            self.fields[field_name].widget.attrs['id'] = custom_id
 
+    username = forms.CharField(required=True)
+    password = forms.CharField(required=True)
+    
     class Meta:
         model = User
-        fields = ('username', 'password',)  # Include password in the fields to be edited
+        fields = ('username', 'password',)
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -78,9 +90,3 @@ class EditUserForm(forms.ModelForm):
         if commit:
             user.save()
         return user
-
-    def __init__(self, *args, **kwargs):
-        super(EditUserForm, self).__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs['id'] = 'username'
-        self.fields['password'].widget.attrs['id'] = 'password'
-
