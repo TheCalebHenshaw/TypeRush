@@ -12,31 +12,31 @@ document.addEventListener("DOMContentLoaded", function() {
         const sqlChars = /[ ;'"\\]/;
 
         if (username.value.length <= 2) {
-            messages.push('username is too short')
+            messages.push('Username is too short')
         }
 
         if (sqlChars.test(username.value)) {
-            messages.push(`username cannot contain [ ; ' " \\ ]`);
+            messages.push(`Username cannot contain [ ; ' " \\ ]`);
         }
 
         if (hasNumber.test(firstname.value)) {
-            messages.push('firstname cannot contain numbers')
+            messages.push('First name cannot contain numbers')
         }
 
         if (hasNumber.test(surname.value)) {
-            messages.push('surname cannot contain numbers')
+            messages.push('Surname cannot contain numbers')
         }
 
         if (password.value.length <= 5) {
-            messages.push('password must be longer than 6 characters')
+            messages.push('Password must be longer than 6 characters')
         }
 
         if (password.value.length >= 15) {
-            messages.push('password must be shorter than 15 characters')
+            messages.push('Password must be shorter than 15 characters')
         }
   
         if (sqlChars.test(password.value)) {
-            messages.push(`password cannot contain [ ; ' " \\ ]`);
+            messages.push(`Password cannot contain [ ; ' " \\ ]`);
         }
         
         if (messages.length > 0) {

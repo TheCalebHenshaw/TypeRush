@@ -35,9 +35,6 @@
             {{ user_form.username }}
             <label for="">Set Username</label>
             <div class="user-error">
-                {% if user_form.errors.username %}
-                    {{ user_form.errors.username|join:" " }}
-                {% endif %}
             </div>
             
         </div>
@@ -302,6 +299,12 @@
             <label for="">Set Password</label>
         </div>
 
+        <div style="color: red; font-size: 14px;">
+        {% if user_form.errors.username %}
+            {{ user_form.errors.username|join:" " }}
+        {% endif %}
+        </div>
+        
         <div class="error">
             <label id="error" class="error">
                 

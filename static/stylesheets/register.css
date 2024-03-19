@@ -186,7 +186,7 @@ select:-webkit-autofill:focus {
 }
 
 .error {
-    color: rgb(217, 96, 96); 
+    color: red; 
     font-size: 14px; 
     margin-top: 5px; 
     visibility: hidden; 
