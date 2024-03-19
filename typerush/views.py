@@ -86,9 +86,7 @@ def register(request):
 
         if user_form.is_valid() and profile_form.is_valid():
             username = user_form.cleaned_data['username']
-            if UserForm.objects.filter(username=username).exists():
-                user_form.add_error('username', 'username "%s" is already in use.' % username)
-                return render(request, 'register.html', {'user_form': user_form, 'profile_form': profile_form})
+            
             user = user_form.save()
             user.set_password(user.password)
             user.save()
