@@ -43,18 +43,44 @@ class UserProfileForm(forms.ModelForm):
         model = Player
         fields = ('firstname','surname','country','profile_picture',)
 
-class EditUserForm(forms.ModelForm):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput())
-    class Meta:
-        model = User
-        fields = ('username','password',)
-class EditPlayerProfileForm(forms.ModelForm):
-    profile_picture = forms.ImageField()
+class EditProfileForm(forms.ModelForm):
     firstname = forms.CharField(max_length=100)
     surname = forms.CharField(max_length=100)
     country = forms.Select()
+    profile_picture = forms.ImageField(required=False)
     class Meta:
         model = Player
         fields = ('firstname','surname','country','profile_picture',)
+    
+    def __init__(self,*args,**kwargs):
+        super(EditProfileForm,self).__init__(*args,**kwargs)
+        custom_ids = {
+            'firstname' : 'firstname',
+            'surname' : 'surname',
+            'country' : 'country',
+            'profile_picture' : 'profile_picture',
+        }
+        for field_name, custom_id in custom_ids.items():
+            self.fields[field_name].widget.attrs['id'] = custom_id
+
+
+class EditUserForm(forms.ModelForm):
+    password = forms.CharField(required=True, widget=forms.PasswordInput())
+
+    class Meta:
+        model = User
+        fields = ('username', 'password',)  # Include password in the fields to be edited
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        password = self.cleaned_data["password"]
+        user.set_password(password)
+        if commit:
+            user.save()
+        return user
+
+    def __init__(self, *args, **kwargs):
+        super(EditUserForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs['id'] = 'username'
+        self.fields['password'].widget.attrs['id'] = 'password'
 
