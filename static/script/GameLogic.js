@@ -167,9 +167,47 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function displayResults() {
         const scoreElement = document.querySelector('.score');
-        scoreElement.style.display = 'block';
-        document.getElementById("wpm").innerText = calculateWPM() + " wpm";
-        document.getElementById("accuracy").innerText = calculateAccuracy() + "%";
+        scoreElement.style.display = 'flex';
+        scoreElement.style.flexDirection = 'column';
+        scoreElement.style.alignItems = 'center';
+        scoreElement.style.justifyContent = 'center';
+        scoreElement.style.marginTop = '-70px';
+        scoreElement.innerHTML = ''; 
+
+        const finishedHeader = document.createElement('h1');
+        finishedHeader.innerText = 'FINISHED';
+        scoreElement.appendChild(finishedHeader);
+    
+        const wpmElement = document.createElement('div');
+        wpmElement.id = 'wpm';
+        wpmElement.innerText = `WPM: ${calculateWPM()} wpm`;
+        scoreElement.appendChild(wpmElement);
+    
+        const accuracyElement = document.createElement('div');
+        accuracyElement.id = 'accuracy';
+        accuracyElement.innerText = `Accuracy: ${calculateAccuracy()}%`;
+        scoreElement.appendChild(accuracyElement);
+    
+        const homeButton = document.createElement('button');
+        homeButton.innerText = 'Return to Home';
+        homeButton.classList.add('home-button'); 
+        homeButton.addEventListener('click', function() {
+            window.location.href = '/';
+        });
+
+        const replayButton = document.createElement('button');
+        replayButton.innerText = 'Replay Game';
+        replayButton.classList.add('replay-button'); 
+        replayButton.addEventListener('click', function() {
+            window.location.href = '/typerush/game/';
+        });
+
+        scoreElement.appendChild(homeButton);
+        scoreElement.appendChild(replayButton);
+    
+        homeButton.style.marginTop = '40px';
+        replayButton.style.marginTop = '15px';
     }
+      
 
 });
