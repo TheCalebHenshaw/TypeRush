@@ -85,7 +85,6 @@ def register(request):
         profile_form = UserProfileForm(request.POST)
 
         if user_form.is_valid() and profile_form.is_valid():
-            username = user_form.cleaned_data['username']
             
             user = user_form.save()
             user.set_password(user.password)
