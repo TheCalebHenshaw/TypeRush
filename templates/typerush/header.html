@@ -23,6 +23,13 @@
             </li>
             {% if user.is_authenticated %}
 
+            <li><a href="{% url 'typerush:game' %}">
+                <button type="button" id="playButton">
+                    Play
+                </button>
+            </a>
+            </li>
+
             <li><a href="{% url 'typerush:profile' %}">
                 <button type="button" id="profileButton">
                     My Profile
