@@ -65,7 +65,7 @@ class EditProfileForm(forms.ModelForm):
 
 
 class EditUserForm(forms.ModelForm):
-    password = forms.CharField(required=True, widget=forms.PasswordInput())
+    password = forms.CharField(required=True)
 
     class Meta:
         model = User
