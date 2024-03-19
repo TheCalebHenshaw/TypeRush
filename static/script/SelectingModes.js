@@ -33,7 +33,7 @@ $(document).ready(function(){
             leaderboardBody.append(
                 `<tr>
                     <td>${index + 1}</td>
-                    <td><img src="${MEDIA_URL}/profile_images/${game.profile_picture}" alt="profile-img"/> ${game.user}</td>
+                    <td><img src="${MEDIA_URL}${game.profile_picture}" alt="profile-img"/> ${game.user}</td>
                     <td>${game.score}</td>
                 </tr>`
             );

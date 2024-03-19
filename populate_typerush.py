@@ -26,7 +26,7 @@ def populate():
             if not player.profile_picture:
                 # Set the profile_picture field to the path of the existing file
                 # .name saves the name not an "instance" of the Image, hence no copies are uploaded to Media dir
-                player.profile_picture.name = f'profile{i}.jpg'
+                player.profile_picture.name = f'profile_images/profile{i}.jpg'
                 player.save(update_fields=['profile_picture'])
 
 

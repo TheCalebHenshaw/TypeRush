@@ -76,7 +76,7 @@
                     {% for game in top_games %}
                     <tr>
                         <td>{{ forloop.counter}}</td>
-                        <td><img src="{{ MEDIA_URL }}profile_images/{{ game.user.profile_picture }}" alt="profile-img"/>
+                        <td><img src="{{ MEDIA_URL }}{{ game.user.profile_picture }}" alt="profile-img"/>
                          {{game.user}}</td>
                         <td>{{game.score}}</td>
                     </tr>
