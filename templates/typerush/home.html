@@ -16,10 +16,11 @@
     {% else %}
         <h1>WELCOME!</h1>
     {% endif %}
-    <div class ="instructions">
-        Welcome aboard TypeRush! Get ready to put your typing skills to the test in a race against time! 
-        You've got just one minute to type out as many words as you can. 
-        And hey, here's the fun part—once the clock stops, 
+    <div class ="instructions" style="font-size: 25px;">
+        Welcome aboard TypeRusher ! 
+        Get ready to put your typing skills to the test in a race against time! 
+        You've got just one minute to press the spacebar, get the next word and type out as many words as you can. 
+        And hey, here's the fun part — once the clock stops, 
         your score will proudly take its place on our leaderboard. 
         It's the perfect chance to playfully rib your friends about their typing speed, 
         or maybe even marvel at your own lightning-fast skills!
@@ -27,7 +28,7 @@
         So sit back, (don't) relax, and enjoy :3 
     </div>
         
-    <a href="{% url 'typerush:game' %}" button type = "button" class="button get-started-button">GET STARTED</button>
+    <a href="{% url 'typerush:game' %}" button type = "button" class="button get-started-button" style="font-size: 20px;">GET STARTED</button>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{% static 'script/JQuery.js' %}"></script>

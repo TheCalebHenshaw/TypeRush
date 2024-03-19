@@ -21,6 +21,7 @@ main h1 {
 
 main .instructions{
     margin: 10px;
+    text-align: center;
 }
 
 main .get-started-button{
@@ -31,10 +32,11 @@ main .get-started-button{
     text-align: center;
     padding: 16px;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
     transition-duration: 0.4s;
     margin: 20px;
     font-style: italic;
+    font-style: bold;
 }
 
 /* W3schools tutorial code for box-shadow*/
