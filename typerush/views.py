@@ -117,7 +117,22 @@ def user_logout(request):
 @login_required
 def profile(request):
     player = Player.objects.get(user=request.user)
-    return render(request, 'typerush/profile.html', {'player' : player})
+
+    easy_mode_games = Game.objects.filter(mode=1, user=player ).order_by('-score')[:3]
+    medium_mode_games = Game.objects.filter(mode=2, user= player).order_by('-score')[:3]
+    hard_mode_games = Game.objects.filter(mode=3, user=player).order_by('-score')[:3]
+    
+    
+
+    context = {
+        'user_games': [easy_mode_games, medium_mode_games, hard_mode_games],
+        'easy_hs': easy_mode_games[0],
+        'medium_hs': medium_mode_games[0],
+        'hard_hs': hard_mode_games[0],
+        'player': player,
+    }
+
+    return render(request, 'typerush/profile.html', context)
 
 @login_required
 def edit_profile(request):

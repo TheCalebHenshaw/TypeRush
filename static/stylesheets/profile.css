@@ -135,7 +135,8 @@ main {
     background-color: var(--darker);
     min-height: 50vh;
     border: 1px solid var(--dark);
-    padding: 3% 4% 4% 4%;  
+    padding: 10%;
+    padding-top: 5%;  
     margin: 5%;
 
     h1 {

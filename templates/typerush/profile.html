@@ -49,15 +49,15 @@
                 </div>
                 <div class="other-data">
                     <section class="data-item">
-                        <h3 class="value">70wmp</h3>
+                        <h3 class="value">{{easy_hs.score}}WPM</h3>
                         <small class="title">Easy Highscore</small>
                     </section>
                     <section class="data-item">
-                        <h3 class="value">70WPM</h3>
+                        <h3 class="value">{{medium_hs.score}}WPM</h3>
                         <small class="title">Medium Highscore</small>
                     </section>
                     <section class="data-item">
-                        <h3 class="value">70WPM</h3>
+                        <h3 class="value">{{hard_hs.score}}WPM</h3>
                         <small class="title">Hard Highscore</small>
                     </section>
                 </div>
@@ -65,6 +65,7 @@
         </div>
         <div class="history">
             <h1> Player History </h1>
+            <h1> Top 3 Games</h1>
             <table id = "leaderboard">
                 <thead>
                     <tr class="table-header">
@@ -73,11 +74,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for game in user_games %}
+                    {% for games in user_games %}
+                    {% for game in games%}
                     <tr>
                         <td>{{game.mode}}</td>
                         <td>{{game.score}}</td>
                     </tr>
+                    {% endfor %}
                     {% endfor %}
     
                 </tbody>
