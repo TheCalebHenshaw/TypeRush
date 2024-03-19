@@ -46,30 +46,38 @@ main {
     border-radius: 30px 30px 0 0;
     position: relative;
 }
-    .main-profile {
-        display: flex;
-        align-items: center;
-        position: absolute;
-        inset: calc(100% - 75px) auto auto 70px;
-    }
-        .profile-image img{
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 10px solid var(--darker);
-        }
-        .profile-names {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background-color: var(--darker);
-            padding: 10px 30px;
-            border-radius: 0 50px 50px 0;
-            transform: translateX(-10px);
-        }
-            .fullname {
-                color: var(--purple);
-            }
+
+.main-profile {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    inset: calc(100% - 75px) auto auto 70px;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 10px solid var(--darker);
+    object-fit: cover;
+    margin: auto;
+    display: block; 
+}
+
+
+
+.profile-names {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--darker);
+    padding: 10px 30px;
+    border-radius: 0 50px 50px 0;
+    transform: translateX(-10px);
+}
+.fullname {
+    color: var(--purple);
+}
 
 
 .profile-body {

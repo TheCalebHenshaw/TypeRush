@@ -50,9 +50,12 @@ main {
 }
 
 .profile-pic img{
-    height: 15vh;
+    height: 17vh;
     width: 17vh;
+    position: relative;
+    margin:auto;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 td img {
@@ -134,13 +137,15 @@ th, td {
 .select-mode {
     margin: 0 5% 2% 0;
     position: relative;
+    background-color:var(--darker);
     
     .selectMode{
         transition: all 0.5s;
         color: inherit;
         border: 1px solid var(--mint);
-        background-color:var(--darkest);
+        background-color:var(--darker);
         padding: 7%;
+        border-radius:15%;
     }
 }
 
@@ -149,13 +154,13 @@ th, td {
     
     background-color: var(--purple);
     border:1px solid var(--purple);
-    color:var(--darkest);
+    color:var(--darker);
 }
 
 .selectMode.selected {    
     background-color: var(--purple);
     border:1px solid var(--purple);
-    color:var(--darkest);
+    color:var(--darker);
 
 }
 
@@ -163,9 +168,11 @@ th, td {
     display: flex;
     justify-content: space-evenly;
     margin: none;
+    background-color: var(--darker);
     
 }
 
 tr #rank {
     padding-left: 10px;
 }
+

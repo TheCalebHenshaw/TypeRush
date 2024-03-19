@@ -51,7 +51,7 @@
                 Leaderboard
             </div>
             <div class="select-mode">
-                <button type="button" class="selectMode selected" data-mode=1>
+                <button type="button" class="selectMode selected" data-mode=1 >
                     Easy
                 </button>
                 <button type="button" class="selectMode" data-mode=2>
@@ -76,7 +76,9 @@
                     {% for game in top_games %}
                     <tr>
                         <td>{{ forloop.counter}}</td>
-                        <td><img src="{{ MEDIA_URL }}{{ game.user.profile_picture }}" alt="profile-img"/>
+                        <div class="round">
+                        <td><img src="{{ MEDIA_URL }}{{ game.user.profile_picture }}" style="border-radius: 50%;"  alt="profile-img"/>
+                        </div>
                          {{game.user}}</td>
                         <td>{{game.score}}</td>
                     </tr>
