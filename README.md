@@ -11,3 +11,10 @@ _members:_ <br />
 ‣ Eduardo Flores Lopez <br />
 ‣ Rayan Mohammed <br />
 ‣ Manassanan Vongprai
+
+
+sources for words used in the game:
+https://preply.com/en/blog/300-most-common-english-words/
+https://grammarist.com/tricky-hard-words-to-spell/
+https://www.thoughtco.com/dinosaurs-a-to-z-1093748
+https://www.drugs.com
