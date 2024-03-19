@@ -63,7 +63,7 @@ main {
 }
 
 .register-box form input#submit {
-    background-color: var(--darker);
+    background-color: black;
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -187,3 +187,22 @@ select:-webkit-autofill:focus {
 .error.show {
     visibility: visible; 
 }
+
+.country select.form-control {
+    width: 70%;
+    height: 30px;
+    font-size: 15px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #fff; 
+}
+
+.country select.form-control option {
+    background-color: #000; 
+    color: #fff; 
+}
+
+.country label {
+    color: #fff;
+}
+
