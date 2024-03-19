@@ -27,6 +27,7 @@
             <img id="profile-picture-preview" src="{% static 'images/usercircle2.png' %}"  alt="Profile Picture Preview" style="color: #15F5BA;" />
             <div class="round">
                 {{ profile_form.profile_picture }}
+                <input type="file" name="profile_picture" id="profile_picture" style="display: none;"/>
                 <i class="fa fa-camera" style="color: #000000;"></i>
             </div>
         </div>

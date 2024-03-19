@@ -24,10 +24,10 @@
     <form id="form" action="{% url 'typerush:edit_profile' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="upload">
-            <img id="profile-picture-preview" src="{% static 'images/usercircle2.png' %}"  alt="Profile Picture Preview" style="color: #15F5BA;" />
+            <img id="profile-picture-preview" src="{% if player.profile_picture %}{{ MEDIA_URL }}{{ player.profile_picture }}{% else %}{% static 'images/usercircle2.png' %}{% endif %}" alt="profile-img" style="width: 100px; height: 100px;"/>
             <div class="round">
-                {{ profile_form.profile_picture }}
-                <i class="fa fa-camera" style="color: #000000;"></i>
+                <input type="file" name="profile_picture" id="profile_picture" style="display: none;"/>
+                <label for="profile_picture" class="fa fa-camera" style="color: #000000; cursor: pointer;"></label>
             </div>
         </div>
         <div class="user-box">
