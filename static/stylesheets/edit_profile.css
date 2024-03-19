@@ -108,11 +108,21 @@ main {
     padding-bottom: 30px;
 }
 
-.upload img{
-    width: 100%;
-    height: auto;
+.upload img {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     border: 3px solid var(--darker);
+    object-fit: cover; 
+    display: block; 
+    margin: auto;
+}
+
+.old-icon{
+    width: 100px;
+    height: 100px; 
+    border-radius: 50%; 
+    object-fit: cover;
 }
 
 .upload .round{
