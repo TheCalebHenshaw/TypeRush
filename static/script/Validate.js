@@ -38,14 +38,15 @@ document.addEventListener("DOMContentLoaded", function() {
         if (sqlChars.test(password.value)) {
             messages.push(`Password cannot contain [ ; ' " \\ ]`);
         }
-        
+
+        errorElement.textContent = ''; 
+        errorElement.classList.remove('show'); 
         if (messages.length > 0) {
             e.preventDefault();
             errorElement.innerHTML = messages.join('<br>');
             errorElement.classList.add('show'); 
-        } else {
-            errorElement.textContent = ''; 
-            errorElement.classList.remove('show'); 
+        } 
+        else { 
         }
     
     })
