@@ -1,3 +1,4 @@
+
 main {
     flex-grow: 1; 
     display: flex; 
@@ -6,7 +7,7 @@ main {
     padding: 1rem; 
 }
 
-.register-box {
+.edit-profile-box {
     max-width: 400px;
     min-width: 300px;
     width: 100%;
@@ -20,7 +21,7 @@ main {
     box-shadow: 0 15px 25px var(--mint);
 }
 
-.register-box h2 {
+.edit-profile-box h2 {
     margin: 0 0 30px;
     padding: 0;
     color: var(--white);
@@ -62,8 +63,8 @@ main {
     font-size: 12px;
 }
 
-.register-box form input#submit {
-    background-color: var(--darker);
+.edit-profile-box form input#submit {
+    background-color: black;
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -79,7 +80,7 @@ main {
     border-radius: 5px;
 }
 
-.register-box form input#submit:hover {
+.edit-profile-box form input#submit:hover {
     background: var(--purple);
     border-color: var(--purple);
     color: var(--white);
@@ -88,7 +89,7 @@ main {
 
 
 @media (max-width: 768px) {
-    .register-box {
+    .edit-profile-box {
         width: 90%; 
         padding: 20px; 
     }
@@ -187,3 +188,22 @@ select:-webkit-autofill:focus {
 .error.show {
     visibility: visible; 
 }
+
+.country select.form-control {
+    width: 70%;
+    height: 30px;
+    font-size: 15px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #fff; 
+}
+
+.country select.form-control option {
+    background-color: #000; 
+    color: #fff; 
+}
+
+.country label {
+    color: #fff;
+}
+

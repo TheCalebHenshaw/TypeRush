@@ -206,3 +206,12 @@ select:-webkit-autofill:focus {
     color: #fff;
 }
 
+.hyperlink {
+    display: block; 
+    clear: both;
+    margin-top: 10px; 
+}
+
+a.hyperlink a:hover {
+    color: var(--purple)!important;
+}

@@ -2,16 +2,20 @@
 
 {% load static %} 
 
-{% block title_block %}Edit{% endblock %}
+{% block title_block %}Edit Profile{% endblock %}
 
 {% block css %}
 {{ block.super }}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-<link href="{% static 'stylesheets/register.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'stylesheets/edit_profile.css' %}" rel="stylesheet" type="text/css" />
 {% endblock %}
 
 {% block main_block %}
-<div class="register-box">
+{% if edit_profile %}
+    <h2 id="edit-profile-msg">Thank you for editing your profile!</h2>
+    <a href="{% url 'typerush:home' %}" id="link-to-home" >Return to homepage</a>
+{% else %}
+<div class="edit-profile-box">
     
     <h2>Edit Your Profile</h2>
 
@@ -37,8 +41,9 @@
             <label for="">Surname</label>
         </div>
 
-        <div id="dropbox">
-            <label for="">Country</label>
+        <div id="dropbox" class="country">
+            <label for="" style="color: white; font-size: 16px;">Country</label>
+        </br>
             <select name="country" class="form-control" id="country">
                 <option value="0" label="Select a country ... " selected="selected">Select a country ... </option>
                 <option value="United States">United States</option>
@@ -291,6 +296,8 @@
         <div class="error">
             <label id="error" class="error"></label>
         </div>
+
+        
         
             <span></span>
             <span></span>
@@ -298,6 +305,7 @@
             <span></span><input type='submit' id="submit"></button>
     </form>
 </div>
+{% endif %}
 {% endblock %}
 
 {% block script %}

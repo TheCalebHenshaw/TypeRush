@@ -44,14 +44,17 @@ class UserProfileForm(forms.ModelForm):
         fields = ('firstname','surname','country','profile_picture',)
 
 class EditUserForm(forms.ModelForm):
-    username = forms.CharField(widget=forms.PasswordInput())
+    username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model = User
         fields = ('username','password',)
 class EditPlayerProfileForm(forms.ModelForm):
     profile_picture = forms.ImageField()
+    firstname = forms.CharField(max_length=100)
+    surname = forms.CharField(max_length=100)
+    country = forms.Select()
     class Meta:
         model = Player
-        fields = ('profile_picture',)
+        fields = ('firstname','surname','country','profile_picture',)
 

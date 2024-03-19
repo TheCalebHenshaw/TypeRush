@@ -120,16 +120,26 @@ def profile(request):
 
 @login_required
 def edit_profile(request):
+    user = request.user
     player = request.user.player
+
     if request.method == 'POST':
-        form = UserForm(request.POST, request.FILES, instance=player)
-        if form.is_valid():
-            form.save()
+        user_form = UserForm(request.POST, instance=user)
+        profile_form = UserProfileForm(request.POST, request.FILES, instance=player)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
             return redirect('profile')
     else:
-        form = UserForm(instance=player)
+        user_form = UserForm(instance=user)
+        profile_form = UserProfileForm(instance=player)
 
-    return render(request, 'typerush/edit_profile.html', {'form' : form})
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form,
+    }
+    return render(request, 'typerush/edit_profile.html', context)
+
 
 
 @login_required(login_url='/typerush/login/')
