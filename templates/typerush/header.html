@@ -3,9 +3,12 @@
 <div class="header-content">
     
     <div class="header-title">
-        <img class="main-logo" src="{% static 'images/icon.png' %}" alt="logo" width="200px" height="110px" >
-
-        <h1>TypeRush</h1>
+        <a href="{% url 'typerush:home' %}">
+            <img class="main-logo" src="{% static 'images/icon.png' %}" alt="logo" width="200px" height="110px" >
+        </a>
+        <a href="{% url 'typerush:home' %}">
+                <h1>TypeRush</h1>
+        </a>
     </div>
     <nav>
         <ul class="header-nav-buttons">
