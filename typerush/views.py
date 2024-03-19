@@ -137,6 +137,7 @@ def edit_profile(request):
     context = {
         'user_form': user_form,
         'profile_form': profile_form,
+        'player':player,
     }
     return render(request, 'typerush/edit_profile.html', context)
 

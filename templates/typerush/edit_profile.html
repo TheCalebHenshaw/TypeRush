@@ -12,8 +12,10 @@
 
 {% block main_block %}
 {% if edit_profile %}
+    <div class="editted">
     <h2 id="edit-profile-msg">Thank you for editing your profile!</h2>
     <a href="{% url 'typerush:home' %}" id="link-to-home" >Return to homepage</a>
+    </div>
 {% else %}
 <div class="edit-profile-box">
     

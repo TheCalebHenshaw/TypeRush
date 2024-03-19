@@ -63,6 +63,11 @@ main {
     font-size: 12px;
 }
 
+.editted {
+    display: flex;
+    flex-direction: column;
+}
+
 .edit-profile-box form input#submit {
     background-color: black;
     position: relative;

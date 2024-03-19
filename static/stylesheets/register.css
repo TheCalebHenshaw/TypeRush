@@ -215,3 +215,12 @@ select:-webkit-autofill:focus {
 a.hyperlink a:hover {
     color: var(--purple)!important;
 }
+
+.hyperlink {
+    display: block; 
+    margin-top: 10px;
+}
+
+.hyperlink:hover {
+    color: #836FFF; 
+}
