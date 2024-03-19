@@ -5,7 +5,7 @@ from .models import Mode, Game, Player, GameResult
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.http import HttpResponse, JsonResponse
-from .forms import UserForm, UserProfileForm
+from .forms import UserForm, UserProfileForm,EditProfileForm,EditUserForm
 from .models import Game
 from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_exempt
@@ -124,15 +124,16 @@ def edit_profile(request):
     player = request.user.player
 
     if request.method == 'POST':
-        user_form = UserForm(request.POST, instance=user)
+        user_form = EditUserForm(request.POST, instance=user)
         profile_form = UserProfileForm(request.POST, request.FILES, instance=player)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            return redirect('profile')
+            return redirect(reverse('typerush:user_login'))
     else:
-        user_form = UserForm(instance=user)
+        user_form = EditUserForm(instance=user)
         profile_form = UserProfileForm(instance=player)
+        user_form.fields['password'].initial = None
 
     context = {
         'user_form': user_form,
