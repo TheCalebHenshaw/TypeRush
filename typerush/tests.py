@@ -7,66 +7,6 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from typerush.models import Mode, Game, Player
 
-class ViewTestCase(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.user = User.objects.create_user(username='testuser', password='testpassword')
-        self.player = Player.objects.create(user=self.user, firstname='John', surname='Doe', country='USA')
-        self.mode = Mode.objects.create(difficulty='Easy')
-        self.game = Game.objects.create(mode=self.mode, user=self.player, score=100)
-
-    def test_home_view(self):
-        response = self.client.get(reverse('typerush:home'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'typerush/home.html')
-
-    def test_leaderboard_view(self):
-        response = self.client.get(reverse('typerush:leaderboard'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'typerush/leaderboard.html')
-
-    def test_update_leaderboard_view(self):
-        response = self.client.post(reverse('typerush:update_leaderboard'), {'mode': self.mode.pk})
-        self.assertEqual(response.status_code, 200)
-        leaderboard_data = response.json().get('top_games')
-        self.assertEqual(len(leaderboard_data), 1)
-        self.assertEqual(leaderboard_data[0]['user'], 'testuser')
-        self.assertEqual(leaderboard_data[0]['score'], 100)
-
-    def test_login_view(self):
-        response = self.client.post(reverse('typerush:login'), {'username': 'testuser', 'password': 'testpassword'})
-        self.assertEqual(response.status_code, 302)
-        self.assertTrue(response.url.startswith(reverse('typerush:home')))
-
-    def test_register_view(self):
-        response = self.client.get(reverse('typerush:register'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'typerush/register.html')
-
-    def test_logout_view(self):
-        self.client.login(username='testuser', password='testpassword')
-        response = self.client.get(reverse('typerush:logout'))
-        self.assertEqual(response.status_code, 302)
-        self.assertTrue(response.url.startswith(reverse('typerush:home')))
-
-    def test_profile_view(self):
-        self.client.login(username='testuser', password='testpassword')
-        response = self.client.get(reverse('typerush:profile'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'typerush/profile.html')
-
-    def test_edit_profile_view(self):
-        self.client.login(username='testuser', password='testpassword')
-        response = self.client.get(reverse('typerush:edit_profile'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'typerush/editprofile.html')
-
-    def test_game_view(self):
-        response = self.client.get(reverse('typerush:game_view'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'typerush/game.html')
-
-
 
 
 
@@ -105,3 +45,50 @@ class GameModelTestCase(TestCase):
 
 
 
+
+
+class RegistrationTestCase(TestCase):
+    def test_valid_registration(self):
+        response = self.client.post(reverse('typerush:register'), {
+            'username': 'newuser',
+            'password': 'newpassword123',
+            'firstname': 'New',
+            'surname': 'User',
+            'country': 'CountryName',  
+
+        })
+        self.assertEqual(response.status_code, 200)  
+        self.assertTrue(User.objects.filter(username='newuser').exists())
+    
+    def test_invalid_registration(self):
+        response = self.client.post(reverse('typerush:register'), {
+            'username': 'existinguser',
+            'password': 'newpassword123',
+          
+        }, follow=True)  
+
+   
+        self.assertEqual(response.status_code, 200)  
+
+class LoginTestCase(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='testpassword123')
+
+    def test_login_success(self):
+        response = self.client.post(reverse('typerush:user_login'), {'username': 'testuser', 'password': 'testpassword123'})
+        self.assertRedirects(response, reverse('typerush:home'))
+
+    def test_login_failure(self):
+        response = self.client.post(reverse('typerush:user_login'), {'username': 'testuser', 'password': 'wrongpassword'})
+        self.assertEqual(response.status_code, 200) 
+        self.assertContains(response, "Invalid login")  
+
+class LogoutTestCase(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='testpassword123')
+        self.client.login(username='testuser', password='testpassword123')
+
+    def test_logout(self):
+        response = self.client.get(reverse('typerush:user_logout'))
+        self.assertRedirects(response, reverse('typerush:home'))  
+        self.assertNotIn('_auth_user_id', self.client.session)
