@@ -10,11 +10,11 @@ _members:_ <br />
 ‣ Fearghus Kennedy <br />
 ‣ Eduardo Flores Lopez <br />
 ‣ Rayan Mohammed <br />
-‣ Manassanan Vongprai
+‣ Manassanan Vongprai  <br />
 
 
-sources for words used in the game:
-https://preply.com/en/blog/300-most-common-english-words/
-https://grammarist.com/tricky-hard-words-to-spell/
-https://www.thoughtco.com/dinosaurs-a-to-z-1093748
+sources for words used in the game:  <br />
+https://preply.com/en/blog/300-most-common-english-words/  <br />
+https://grammarist.com/tricky-hard-words-to-spell/  <br />
+https://www.thoughtco.com/dinosaurs-a-to-z-1093748  <br />
 https://www.drugs.com
