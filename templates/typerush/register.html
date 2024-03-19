@@ -33,9 +33,12 @@
         <div class="user-box">
             {{ user_form.username }}
             <label for="">Set Username</label>
-            {% if user_form.errors.username %}
-                <p id="error-message">{{ user_form.errors.username }}</p>
-            {% endif %}
+            <div class="user-error">
+                {% if user_form.errors.username %}
+                    {{ user_form.errors.username|join:" " }}
+                {% endif %}
+            </div>
+            
         </div>
         <div class="user-box">
             {{ profile_form.firstname }}
@@ -299,7 +302,9 @@
         </div>
 
         <div class="error">
-            <label id="error" class="error"></label>
+            <label id="error" class="error">
+                
+            </label>
         </div>
 
         

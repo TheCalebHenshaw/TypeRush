@@ -225,6 +225,7 @@ a.hyperlink a:hover {
     color: #836FFF; 
 }
 
-#error-message {
+.user-error{
     color: red;
+    margin-bottom: 5%;
 }
