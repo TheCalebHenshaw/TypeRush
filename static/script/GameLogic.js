@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     $(".selectMode").click(function(){
         if (gameStarted) {
-            alert("you cannot change difficulty mid-game, sorry :)");
+            alert("You cannot change difficulty mid-game, sorry :)");
             return;
         }
 

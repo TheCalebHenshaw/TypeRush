@@ -15,6 +15,10 @@ document.addEventListener("DOMContentLoaded", function() {
             messages.push('username is too short')
         }
 
+        if (sqlChars.test(username.value)) {
+            messages.push(`username cannot contain [ ; ' " \\ ]`);
+        }
+
         if (hasNumber.test(firstname.value)) {
             messages.push('firstname cannot contain numbers')
         }
