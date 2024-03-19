@@ -22,6 +22,14 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ('username', 'password',)
 
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        try:
+            user = User.objects.get(username=username)
+            raise forms.ValidationError('Username "%s" is already in use.' % username)
+        except User.DoesNotExist:
+            return username
+
 class UserProfileForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(UserProfileForm, self).__init__(*args, **kwargs)
