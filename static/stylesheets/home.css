@@ -16,6 +16,7 @@ main {
 main h1 {
     font-size: 5em;
     padding: 10px;
+    font-family: var(--subtitle-font);
 
 }
 
