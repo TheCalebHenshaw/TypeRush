@@ -33,6 +33,9 @@
         <div class="user-box">
             {{ user_form.username }}
             <label for="">Set Username</label>
+            {% if user_form.errors.username %}
+                <p id="error-message">{{ user_form.errors.username }}</p>
+            {% endif %}
         </div>
         <div class="user-box">
             {{ profile_form.firstname }}

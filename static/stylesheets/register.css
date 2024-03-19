@@ -224,3 +224,7 @@ a.hyperlink a:hover {
 .hyperlink:hover {
     color: #836FFF; 
 }
+
+#error-message {
+    color: red;
+}
