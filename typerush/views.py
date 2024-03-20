@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate,login, logout
 from django.contrib.auth.decorators import login_required
-from .models import Mode, Game, Player, GameResult
+from .models import Mode, Game, Player
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.http import HttpResponse, JsonResponse
@@ -10,6 +10,8 @@ from .models import Game
 from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_exempt
 import json
+from django.views.decorators.http import require_POST
+from django.shortcuts import get_object_or_404
 
 
 # Create your views here.
@@ -190,13 +192,17 @@ def get_json_data(request):
 def selecting_mode(request):
     return render(request,'typerush/selecting_mode.html')
 
+@require_POST
 @csrf_exempt
 def save_game_results(request):
     if request.method == 'POST':
-        correct = request.POST.get('correct', 0)
-        wrong = request.POST.get('wrong', 0)
+        mode_name = request.POST.get('mode')
+        score = request.POST.get('score')
+        mode = get_object_or_404(Mode, difficulty=mode_name)
 
-        GameResult.objects.create(correct = correct , wrong = wrong)
+        player = request.user.player
+
+        Game.objects.create(mode = mode, user = player, score = score)
 
         return JsonResponse({'status' : 'success'})
     

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let timer;
     let totalChars = 0;
     let wordsToType = [];
-    let currentCategory = 'easy'; 
+    let currentCategory = 'Easy'; 
     let currentWordIndex = 0;
     let gameStarted = false;
     let correct = 0;
@@ -129,8 +129,8 @@ document.addEventListener("DOMContentLoaded", function() {
             url: '/typerush/save_game_results/', 
             type: 'POST',
             data: {
-                correct: correct,
-                wrong: wrong
+                mode: currentCategory,
+                score: calculateWPM()
             },
             success: function(response) {
                 console.log('Results saved successfully', response);
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function calculateWPM() {
-        return (totalChars / 5);
+        return Math.floor(totalChars / 5);
     }
 
     function checkSpelling(input, word) {
