@@ -103,6 +103,10 @@ td img {
     
 }
 
+.subtitle {
+    font-family: var(--subtitle-font);
+}
+
 table {
     padding-top: 3%;
     width: 100%;

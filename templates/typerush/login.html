@@ -11,7 +11,7 @@
 
 {% block main_block %}
 <div class="login-box">
-    <h2>Login</h2>
+    <h2 class="subtitle">Login</h2>
     <form action="{% url 'typerush:user_login' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="user-box">

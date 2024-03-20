@@ -7,6 +7,11 @@ main {
     padding: 1rem; 
 }
 
+.subtitle {
+    font-size: 30px;
+    font-family: var(--subtitle-font);
+}
+
 .login-box {
     max-width: 400px;
     min-width: 300px;

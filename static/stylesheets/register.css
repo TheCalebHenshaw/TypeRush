@@ -13,6 +13,10 @@ main {
     object-fit: cover;
 }
 
+.subtitle {
+    font-size: 30px;
+    font-family: var(--subtitle-font);
+}
 
 .register-box {
     max-width: 400px;

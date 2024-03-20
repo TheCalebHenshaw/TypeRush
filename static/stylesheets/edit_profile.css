@@ -148,6 +148,11 @@ main {
     opacity: 0;
 }
 
+.subtitle {
+    font-size: 30px;
+    font-family: var(--subtitle-font);
+}
+
 input[type=file]::-webkit-file-upload-button{
     cursor: pointer;
 }

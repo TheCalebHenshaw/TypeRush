@@ -19,7 +19,7 @@
 {% else %}
 <div class="edit-profile-box">
     
-    <h2>Edit Your Profile</h2>
+    <h2 class="subtitle">Edit  Your  Profile</h2>
 
     <form id="form" action="{% url 'typerush:edit_profile' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
