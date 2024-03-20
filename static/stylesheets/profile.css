@@ -29,6 +29,7 @@ main {
     display: flex;
     min-height: 50vh;
     padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .profile-card {
