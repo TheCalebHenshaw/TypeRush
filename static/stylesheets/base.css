@@ -224,7 +224,7 @@ body{
     height: 100%;
     top: 0;
     left: 5%;
-    background: #000;
+    background: transparent;
     overflow: hidden;
 
     &::after{
