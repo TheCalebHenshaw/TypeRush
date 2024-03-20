@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let userInput = '';
     let currentWord;
     let spelling;
+    let score;
+    let accuracy;
+    let sentResults = false;
 
     function startTimer() {
         let minutes = Math.floor(count / 60);
@@ -120,17 +123,26 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function endGame() {
+        score = calculateWPM();
+        accuracy = calculateAccuracy();
         gameStarted = false;
         hideStuff();
         displayResults();
         window.onbeforeunload = null;
+        if (!sentResults) {
+            sentResults = true;
+            saveGame();
+        }
+        
+    }
 
+    function saveGame() {
         $.ajax({
             url: '/typerush/save_game_results/', 
             type: 'POST',
             data: {
                 mode: currentCategory,
-                score: calculateWPM()
+                score: score
             },
             success: function(response) {
                 console.log('Results saved successfully', response);
@@ -186,12 +198,12 @@ document.addEventListener("DOMContentLoaded", function() {
     
         const wpmElement = document.createElement('div');
         wpmElement.id = 'wpm';
-        wpmElement.innerText = `WPM: ${calculateWPM()} wpm`;
+        wpmElement.innerText = 'WPM: ' + score + ' wpm';
         scoreElement.appendChild(wpmElement);
     
         const accuracyElement = document.createElement('div');
         accuracyElement.id = 'accuracy';
-        accuracyElement.innerText = `Accuracy: ${calculateAccuracy()}%`;
+        accuracyElement.innerText = 'Accuracy: ' + accuracy + '%';
         scoreElement.appendChild(accuracyElement);
     
         const homeButton = document.createElement('button');
