@@ -135,17 +135,23 @@ th, td {
 }
 
 .select-mode {
-    margin: 0 5% 2% 0;
+    display: flex;
+    margin: 0 5% 5% 0;
     position: relative;
     background-color:var(--darker);
+    width: 20%;
+    padding-right: 2%;
+
     
     .selectMode{
+        display: flex;
         transition: all 0.5s;
         color: inherit;
         border: 1px solid var(--mint);
         background-color:var(--darker);
         padding: 7%;
-        border-radius:15%;
+        border-radius:12%;
+        
     }
 }
 
@@ -176,3 +182,14 @@ tr #rank {
     padding-left: 10px;
 }
 
+@media screen and (max-width: 600px) {
+    .leaderboard-header {
+      flex-direction: column;
+      align-items: center; 
+    }
+  
+    .select-mode {
+      justify-content: center; 
+      margin: 10px 0;
+    }
+  }
