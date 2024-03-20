@@ -126,7 +126,9 @@ main {
     display: flex;
     flex-direction: column;
     color: var(--secondary-color);
-    padding: 5%;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
     text-align: center;
     border: 1px solid var(--lighter);
     border-radius: 15px;
