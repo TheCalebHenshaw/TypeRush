@@ -20,13 +20,4 @@ Unit Testing:
 - Check that the views work as well
 - Check the login works
 
-needed but havent implemented:
-- unit testing
-- requirements.txt file
-- do we have a population script
 
-˚୨୧⋆｡˚ ⋆
-mana's corner (sorry caleb for stealing ur space):
--> will probably have to use AJAX ?
--> what if we have three separate js files w a bunch of words for the game,,
-would that be easier to query from
