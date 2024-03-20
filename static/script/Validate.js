@@ -50,4 +50,20 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     
     })
+
+    function handleFileSelect(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        
+        reader.onload = function(event) {
+            const imageUrl = event.target.result;
+            // Display the selected image preview
+            document.getElementById('profile-picture-preview').src = imageUrl;
+        }
+        
+        reader.readAsDataURL(file);
+    }
+
+    // Add event listener to input element for file selection
+    document.getElementById('profile_picture').addEventListener('change', handleFileSelect);
 });

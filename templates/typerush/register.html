@@ -325,26 +325,4 @@
 
 {% block script %}
     <script src="{% static 'script/Validate.js' %}"></script>
-    <script>
-        // JavaScript code to handle profile picture upload
-        // This is a basic example, you may need to modify it based on your requirements
-
-        // Function to handle file selection
-        function handleFileSelect(event) {
-            const file = event.target.files[0];
-            const reader = new FileReader();
-            
-            reader.onload = function(event) {
-                const imageUrl = event.target.result;
-                // Display the selected image preview
-                document.getElementById('profile-picture-preview').src = imageUrl;
-            }
-            
-            reader.readAsDataURL(file);
-        }
-
-        // Add event listener to input element for file selection
-        document.getElementById('profile_picture').addEventListener('change', handleFileSelect);
-
-    </script>
 {% endblock %}
