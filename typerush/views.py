@@ -161,14 +161,19 @@ def profile(request):
     rank['easy'] = get_rank(1, player)
     rank['medium'] = get_rank(2, player)
     rank['hard'] = get_rank(3, player)
-
-    try: 
-        easy_hs = easy_mode_games[0]
-        medium_hs = medium_mode_games[0]
-        hard_hs = hard_mode_games[0]
     
+    try: 
+        easy_hs = easy_mode_games[0].score
     except:
-        easy_hs, medium_hs, hard_hs = {'',None,0}
+        easy_hs = 0
+    try: 
+        medium_hs = medium_mode_games[0].score
+    except:
+        medium_hs = 0
+    try: 
+        hard_hs = hard_mode_games[0].score
+    except:
+        hard_hs = 0
 
     context = {
         'user_games': [easy_mode_games, medium_mode_games, hard_mode_games],
