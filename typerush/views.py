@@ -12,6 +12,7 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from django.views.decorators.http import require_POST
 from django.shortcuts import get_object_or_404
+from django.db.models import Count
 
 
 # Create your views here.
@@ -20,7 +21,6 @@ def home(request):
     return render(request, 'typerush/home.html', {'user_instance': user_instance})
 
 def get_games(mode):
-
     try:
         top_games = Game.objects.filter(mode=mode).order_by('-score')[:10]
         return top_games
@@ -33,12 +33,15 @@ def leaderboard(request):
     mode = 1 # default
     top_games = get_games(mode)
     
+    
     try:
         user_instance = Player.objects.get(user=request.user)
     except:
         user_instance = None
-    
-    return render(request, 'typerush/leaderboard.html', {'top_games': top_games, 'mode':mode, 'user_instance': user_instance})
+
+    rank = get_rank(mode, user_instance)
+
+    return render(request, 'typerush/leaderboard.html', {'top_games': top_games, 'mode':mode, 'user_instance': user_instance, 'rank':rank})
 
 @csrf_exempt
 def update_leaderboard(request):
@@ -46,7 +49,7 @@ def update_leaderboard(request):
     request.session['mode'] = mode
 
     top_games = get_games(mode)
-    print(top_games)
+    
     # Prepare the data to be returned in JSON format
     leaderboard_data = []
     for game in top_games:
@@ -58,8 +61,6 @@ def update_leaderboard(request):
     # print(leaderboard_data)
     # Return the leaderboard data as JSON response
     return JsonResponse({'top_games': leaderboard_data})
-
-
 
 def user_login(request):
     if request.method == 'POST':
@@ -116,14 +117,31 @@ def user_logout(request):
     logout(request)
     return redirect('typerush:home')
 
+def get_rank(mode, player):
+    try:
+        user_game = Game.objects.filter(mode= mode, user = player).order_by('-score').first()
+
+        games = Game.objects.filter(mode=mode).order_by('-score')
+        rank = games.filter(score__gt = user_game.score).count() + 1
+        return rank
+    except Exception as e:
+        print(f"Error fetching games: {e}")
+        return 0
+    
 @login_required
 def profile(request):
     player = Player.objects.get(user=request.user)
+    rank = {'easy': 0, 'medium':0, 'hard':0}
 
+    # will use ranking in medium, if not played, easy, if not, hard.    
     easy_mode_games = Game.objects.filter(mode=1, user=player ).order_by('-score')[:3]
     medium_mode_games = Game.objects.filter(mode=2, user= player).order_by('-score')[:3]
     hard_mode_games = Game.objects.filter(mode=3, user=player).order_by('-score')[:3]
-    
+
+    rank['easy'] = get_rank(1, player)
+    rank['medium'] = get_rank(2, player)
+    rank['hard'] = get_rank(3, player)
+
     try: 
         easy_hs = easy_mode_games[0]
         medium_hs = medium_mode_games[0]
@@ -138,6 +156,7 @@ def profile(request):
         'medium_hs': medium_hs,
         'hard_hs': hard_hs,
         'player': player,
+        'rank': rank,
     }
 
     return render(request, 'typerush/profile.html', context)

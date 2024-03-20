@@ -97,30 +97,46 @@ main {
     gap: 70px;
     padding: 60px;
 }
+    .profile-actions {
+        display: grid;
+        grid-template-rows: repeat(2, max-content) auto;
+        gap: 5%;
+        margin-top: 30px;
+        font-size: x-large;
 
-.profile-actions {
-    padding-top: 20px;
-    flex-wrap: wrap;
-    display: grid;
-    grid-template-rows: repeat(2, max-content) auto;
-    gap: 10px;
-    margin-top: 30px;
-    font-size: x-large;
+    }
+    .profile-actions button {
+        all: unset;
+        padding: 10px;
+        border: 2px solid var(--purple);
+        text-align: center;
+        border-radius: 10px;
+        transition: all 0.3s;
+    }
+    .profile-actions .rank:hover {
+        transition: all 0.6s ease;
+        background-color: var(--primary-bg);
+        border:1px solid var(--purple);
+        color:var(--lighter);
+        padding: 7%;
+        
+        .hidden {
+            opacity: 1;
+            height: inherit;
+            padding: 10px;
+            
+        }
+    }
+    .profile-actions .rank .hidden {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: all 0.6s ease;
+        opacity: 0;
+        height: 0;
+    }
 
-}
-
-.profile-actions button {
-    all: unset;
-    padding: 10px;
-    flex-wrap: wrap;
-    border: 2px solid var(--purple);
-    text-align: center;
-    display: grid;
-    margin: 5px;
-    border-radius: 10px;
-}
-
-.profile-actions .rank {background-color: var(--purple)}
+        .profile-actions .rank {background-color: var(--purple)}
 
 .data {
     display: flex;

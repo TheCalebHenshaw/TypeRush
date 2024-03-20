@@ -17,11 +17,11 @@
             <div class="rank-box">
                 <div class="rank-display">
                     <h3>My Rank</h3>
-                    <h2>{{ user_instance.rank }} Place</h2>
+                    <h2 id="rank">{{ rank }} Place</h2>
                 </div>
                 <div class="score-display">
                     <h3>Average Score</h3>
-                    <h2>{{ user_instance.average_speed }}</h2>
+                    <h2>{{ user_instance.average_speed }} WPM</h2>
                 </div>
             </div>
             <div class="personal-info">
@@ -51,13 +51,13 @@
                 Leaderboard
             </div>
             <div class="select-mode">
-                <button type="button" class="selectMode selected" data-mode=1 >
+                <button type="button" class="selectMode selected" data-mode=1 onclick="showRankLeaderBoard()">
                     Easy
                 </button>
-                <button type="button" class="selectMode" data-mode=2>
+                <button type="button" class="selectMode" data-mode=2 onclick="showRankLeaderBoard()">
                     Medium
                 </button>
-                <button type="button" class="selectMode" data-mode=3>
+                <button type="button" class="selectMode" data-mode=3 onclick="showRankLeaderBoard()">
                     Hard
                 </button>
             </div>
@@ -93,4 +93,5 @@
     var MEDIA_URL = "{{ MEDIA_URL }}";
 </script>
 <script src="{% static 'script/SelectingModes.js' %}"></script>
+<script src="{% static 'script/RankSuffix.js' %}"></script>
 {% endblock %}

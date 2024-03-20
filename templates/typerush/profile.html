@@ -31,7 +31,11 @@
 
         <div class="profile-body"><!-- profile body section -->
             <div class="profile-actions">
-                <button class="rank">Rank: {{ player.rank }}</button>
+                <button type ="button" class="rank" onmouseover="showRanks()">Ranks:
+                    <small class = "hidden" id="easyRank">Easy >> {{rank.easy}}</small>
+                    <small class = "hidden" id="mediumRank">Medium >> {{rank.medium}}</small>
+                    <small class = "hidden" id="hardRank">Hard >> {{rank.hard}}</small>
+                </button>
                 <button class="country">Country: {{ player.country }}</button>
                 
             </div>
@@ -99,4 +103,5 @@
 
 {% block script %}
     <script src="{% static 'script/JQuery.js' %}"></script>
+    <script src="{% static 'script/RankSuffix.js' %}"></script>
 {% endblock %}
