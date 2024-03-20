@@ -45,10 +45,12 @@ def leaderboard(request):
 
 @csrf_exempt
 def update_leaderboard(request):
+    player = Player.objects.get(user=request.user)
     mode = request.POST.get('mode')
     request.session['mode'] = mode
 
     top_games = get_games(mode)
+    rank = get_rank(mode, player)
     
     # Prepare the data to be returned in JSON format
     leaderboard_data = []
@@ -60,7 +62,7 @@ def update_leaderboard(request):
             })
     # print(leaderboard_data)
     # Return the leaderboard data as JSON response
-    return JsonResponse({'top_games': leaderboard_data})
+    return JsonResponse({'top_games': leaderboard_data, 'rank':rank})
 
 def user_login(request):
     if request.method == 'POST':
@@ -185,13 +187,10 @@ def edit_profile(request):
     }
     return render(request, 'typerush/edit_profile.html', context)
 
-
-
 @login_required(login_url='/typerush/login/')
 # will add the correct context dictionary when i have better idea of how game is implemented
 def game_view(request):
     return render(request, 'typerush/game.html')
-
 
 @csrf_exempt
 def get_json_data(request):
@@ -206,7 +205,6 @@ def get_json_data(request):
         return JsonResponse({'error': 'File not found'}, status=404)
     except json.JSONDecodeError:
         return JsonResponse({'error': 'Invalid JSON format'}, status=500)
-
     
 def selecting_mode(request):
     return render(request,'typerush/selecting_mode.html')

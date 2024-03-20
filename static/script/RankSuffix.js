@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function() {
+    showRankLeaderBoard()
+});
+
 function addRankSuffix(rank) {
     if (rank % 100 >= 11 && rank % 100 <= 13) {
         return rank + "th";
@@ -34,8 +38,6 @@ function showRanks() {
 function showRankLeaderBoard() {
 
     var rankElement = document.getElementById("rank");
-
     var rank = parseInt(rankElement.textContent.split(" ")[0]);
-
     rankElement.textContent = addRankSuffix(rank) + " Place";
 }

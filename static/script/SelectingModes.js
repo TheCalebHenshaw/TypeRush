@@ -38,5 +38,11 @@ $(document).ready(function(){
                 </tr>`
             );
         });
+        var rankElement = $("#rank");
+        rankElement.empty(); // Clear the existing rank
+        // Append the new rank
+        rankElement.append(response.rank)
+        showRankLeaderBoard()
+
     }
 });
