@@ -237,6 +237,9 @@ def save_game_results(request):
 
         player = request.user.player
 
+        player.total_races += 1
+        player.save()
+
         Game.objects.create(mode = mode, user = player, score = score)
 
         return JsonResponse({'status' : 'success'})
