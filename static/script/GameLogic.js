@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         };
                     } else {
                         if (event.key === ' ') {
+                            event.stopImmediatePropagation();
                             if (checkSpelling(userInput, currentWord)) {
                                 correct++;
                                 countChars(currentWord);
@@ -114,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function advanceWord(){
-        currentWordIndex +=1;
+        currentWordIndex = Math.floor(Math.random() * wordsToType.length);
         displayWords();
     }
 
@@ -122,6 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
         gameStarted = false;
         hideStuff();
         displayResults();
+        window.onbeforeunload = null;
 
         $.ajax({
             url: '/typerush/save_game_results/', 
@@ -140,7 +142,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     function calculateAccuracy() {
-        return (correct / (correct + wrong)) * 100;
+        if (correct === 0 && wrong === 0) {
+            return 0;
+        }
+        let accu = (correct / (correct + wrong)) * 100;
+        return accu.toFixed(2);
     }
 
     function countChars(word) {
