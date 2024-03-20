@@ -40,8 +40,9 @@ def leaderboard(request):
         user_instance = None
 
     rank = get_rank(mode, user_instance)
+    score = get_score(mode, user_instance)
 
-    return render(request, 'typerush/leaderboard.html', {'top_games': top_games, 'mode':mode, 'user_instance': user_instance, 'rank':rank})
+    return render(request, 'typerush/leaderboard.html', {'top_games': top_games, 'mode':mode, 'user_instance': user_instance, 'rank':rank, 'score':score})
 
 @csrf_exempt
 def update_leaderboard(request):
@@ -51,6 +52,7 @@ def update_leaderboard(request):
 
     top_games = get_games(mode)
     rank = get_rank(mode, player)
+    score = get_score(mode, player)
     
     # Prepare the data to be returned in JSON format
     leaderboard_data = []
@@ -62,7 +64,7 @@ def update_leaderboard(request):
             })
     # print(leaderboard_data)
     # Return the leaderboard data as JSON response
-    return JsonResponse({'top_games': leaderboard_data, 'rank':rank})
+    return JsonResponse({'top_games': leaderboard_data, 'rank':rank, 'score':score})
 
 def user_login(request):
     if request.method == 'POST':
@@ -129,6 +131,16 @@ def get_rank(mode, player):
     except Exception as e:
         print(f"Error fetching games: {e}")
         return 0
+
+def get_score(mode, player):
+    try:
+        user_game = Game.objects.filter(mode= mode, user = player).order_by('-score').first()
+        return user_game.score
+
+    except Exception as e:
+        print(f"Error fetching games: {e}")
+        return 0
+
     
 @login_required
 def profile(request):

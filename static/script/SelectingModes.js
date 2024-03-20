@@ -44,5 +44,10 @@ $(document).ready(function(){
         rankElement.append(response.rank)
         showRankLeaderBoard()
 
+        var scoreElement = $("#score");
+        scoreElement.empty(); // Clear the existing score
+        // Append the new score
+        scoreElement.append(response.score + " WPM")
+
     }
 });
