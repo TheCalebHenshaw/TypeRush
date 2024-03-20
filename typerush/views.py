@@ -197,7 +197,10 @@ def edit_profile(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            return redirect(reverse('typerush:user_login'))
+            if 'password' in user_form.changed_data:
+                return redirect(reverse('typerush:user_login'))
+            else:
+                return redirect(reverse('typerush:profile'))
     else:
         user_form = EditUserForm(instance=user)
         profile_form = UserProfileForm(instance=player)
