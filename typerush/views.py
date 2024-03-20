@@ -46,13 +46,11 @@ def leaderboard(request):
 
 @csrf_exempt
 def update_leaderboard(request):
-    player = Player.objects.get(user=request.user)
+    
     mode = request.POST.get('mode')
     request.session['mode'] = mode
 
     top_games = get_games(mode)
-    rank = get_rank(mode, player)
-    score = get_score(mode, player)
     
     # Prepare the data to be returned in JSON format
     leaderboard_data = []
@@ -62,9 +60,17 @@ def update_leaderboard(request):
             'score': game.score,
             'profile_picture': game.user.profile_picture.name
             })
-    # print(leaderboard_data)
-    # Return the leaderboard data as JSON response
-    return JsonResponse({'top_games': leaderboard_data, 'rank':rank, 'score':score})
+    
+    try:
+        player = Player.objects.get(user=request.user)
+        rank = get_rank(mode, player)
+        score = get_score(mode, player)
+        # Return the leaderboard data as JSON response
+        return JsonResponse({'top_games': leaderboard_data, 'rank':rank, 'score':score})
+    except:
+        # Return the leaderboard data as JSON response
+        return JsonResponse({'top_games': leaderboard_data})
+    
 
 def user_login(request):
     if request.method == 'POST':
