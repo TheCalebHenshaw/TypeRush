@@ -26,7 +26,6 @@
 
 main {
     margin: 0 20% 0 20%;
-    display: flex;
     min-height: 50vh;
     padding-top: 100px;
     padding-bottom: 100px;
@@ -39,13 +38,13 @@ main {
     width: 100%;
     background-color: var(--darker);
     border-radius: 40px;
-    z-index: -1;
 }
 /* ------ profile header section */
 .profile-header {
     margin: 10px;
     border-radius: 30px 30px 0 0;
     position: relative;
+    
 }
 
 .main-profile {
@@ -62,10 +61,14 @@ main {
     border: 10px solid var(--darker);
     object-fit: cover;
     margin: auto;
-    display: block; 
+    display: block;
+    z-index: 2;
 }
 
-
+.profile-image {
+  
+    z-index: 2;
+}
 
 .profile-names {
     display: flex;
@@ -76,7 +79,6 @@ main {
     padding: 10px 20px;
     border-radius: 0 50px 50px 0;
     transform: translateX(-42px) translateY(-6px);
-    z-index: -1;
 }
 
 .username{
