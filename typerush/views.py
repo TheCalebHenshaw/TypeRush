@@ -213,7 +213,7 @@ def edit_profile(request):
     }
     return render(request, 'typerush/edit_profile.html', context)
 
-@login_required(login_url='/typerush/login/')
+@login_required(login_url='typerush:user_login')
 # will add the correct context dictionary when i have better idea of how game is implemented
 def game_view(request):
     return render(request, 'typerush/game.html')
